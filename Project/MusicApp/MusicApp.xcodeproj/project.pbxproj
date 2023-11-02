@@ -15,6 +15,11 @@
 		529B59A82AF3791000E6208E /* MusicElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529B59A72AF3791000E6208E /* MusicElement.swift */; };
 		529B59AA2AF379D200E6208E /* MusicData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529B59A92AF379D200E6208E /* MusicData.swift */; };
 		529B59AC2AF37D7C00E6208E /* MusicStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529B59AB2AF37D7C00E6208E /* MusicStore.swift */; };
+		529B59B02AF3D4EC00E6208E /* PlayMusic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529B59AF2AF3D4EC00E6208E /* PlayMusic.swift */; };
+		529B59B22AF3D50500E6208E /* BottomDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529B59B12AF3D50500E6208E /* BottomDrawer.swift */; };
+		529B59B62AF3D51500E6208E /* DrawerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529B59B32AF3D51500E6208E /* DrawerExtension.swift */; };
+		529B59B72AF3D51500E6208E /* CustomCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529B59B42AF3D51500E6208E /* CustomCorners.swift */; };
+		529B59B82AF3D51500E6208E /* BottomDrawerModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529B59B52AF3D51500E6208E /* BottomDrawerModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +33,11 @@
 		529B59A72AF3791000E6208E /* MusicElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicElement.swift; sourceTree = "<group>"; };
 		529B59A92AF379D200E6208E /* MusicData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicData.swift; sourceTree = "<group>"; };
 		529B59AB2AF37D7C00E6208E /* MusicStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicStore.swift; sourceTree = "<group>"; };
+		529B59AF2AF3D4EC00E6208E /* PlayMusic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayMusic.swift; sourceTree = "<group>"; };
+		529B59B12AF3D50500E6208E /* BottomDrawer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomDrawer.swift; sourceTree = "<group>"; };
+		529B59B32AF3D51500E6208E /* DrawerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerExtension.swift; sourceTree = "<group>"; };
+		529B59B42AF3D51500E6208E /* CustomCorners.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCorners.swift; sourceTree = "<group>"; };
+		529B59B52AF3D51500E6208E /* BottomDrawerModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomDrawerModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +54,11 @@
 		529B598A2AF3773800E6208E = {
 			isa = PBXGroup;
 			children = (
+				529B59AF2AF3D4EC00E6208E /* PlayMusic.swift */,
+				529B59B12AF3D50500E6208E /* BottomDrawer.swift */,
+				529B59B52AF3D51500E6208E /* BottomDrawerModifier.swift */,
+				529B59B42AF3D51500E6208E /* CustomCorners.swift */,
+				529B59B32AF3D51500E6208E /* DrawerExtension.swift */,
 				529B59952AF3773800E6208E /* MusicApp */,
 				529B59942AF3773800E6208E /* Products */,
 			);
@@ -153,10 +168,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				529B59AC2AF37D7C00E6208E /* MusicStore.swift in Sources */,
+				529B59B72AF3D51500E6208E /* CustomCorners.swift in Sources */,
+				529B59B82AF3D51500E6208E /* BottomDrawerModifier.swift in Sources */,
 				529B59992AF3773800E6208E /* ContentView.swift in Sources */,
+				529B59B62AF3D51500E6208E /* DrawerExtension.swift in Sources */,
 				529B59AA2AF379D200E6208E /* MusicData.swift in Sources */,
 				529B59972AF3773800E6208E /* MusicAppApp.swift in Sources */,
 				529B59A82AF3791000E6208E /* MusicElement.swift in Sources */,
+				529B59B22AF3D50500E6208E /* BottomDrawer.swift in Sources */,
+				529B59B02AF3D4EC00E6208E /* PlayMusic.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

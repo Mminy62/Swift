@@ -12,7 +12,7 @@ struct MusicElement: Codable {
     let url: String
     let streamable: Streamable
     let artist: Artist
-    let image: [Image]
+    let image: [Asset]
 }
 
 // MARK: - Artist
@@ -22,7 +22,7 @@ struct Artist: Codable {
 }
 
 // MARK: - Image
-struct Image: Codable {
+struct Asset: Codable {
     let text: String
     let size: Size
 
@@ -31,6 +31,7 @@ struct Image: Codable {
         case size
     }
 }
+
 
 enum Size: String, Codable {
     case extralarge = "extralarge"
