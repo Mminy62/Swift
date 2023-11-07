@@ -8,42 +8,38 @@
 import SwiftUI
 
 
-struct ContentView: View {
-    
-    @StateObject var musicStore: MusicStore = MusicStore(musics: musicData)
-    @State var selectedIdx = 0
-    
-    var body: some View {
-        
-    
-        NavigationStack{
 
-                VStack{
-                    
-                    List {
-                        ForEach(0..<musicStore.musics.count, id: \.self) { i in
-                            NavigationLink(destination: PlayMusic(selectedIdx: $selectedIdx)){
-                                MusicList(musicStore: musicStore, i: i)
-                                
-                            }
+struct ContentView: View {
+    @StateObject var musicStore : MusicStore = MusicStore(musics: musicData)
+    @State var selectedIdx = 0
+    @State var PlayList : [MusicSrc] = []
+
+    var body: some View {
+        NavigationStack{
+            VStack{
+                List {
+                    ForEach(0..<musicStore.musics.count, id: \.self) { i in
+                        NavigationLink(destination: PlayMusic(selectedIdx: $selectedIdx, PlayList:$PlayList)
+                                .onAppear {
+                                    let selectedMusic = musicStore.musics[i]
+                                    if PlayList.contains(where: {$0.title == selectedMusic.title}){
+                                        if let index = PlayList.firstIndex(where: { $0.title  == selectedMusic.title }) {
+                                            PlayList.swapAt(index, 0) // PlayList의 첫 번째 인덱스로 이동
+                                        }
+                                    }
+                                    else {
+                                        PlayList.append(selectedMusic)
+                                    }
+                                })
+                            {
+                            MusicList(musicStore: musicStore, i: i)
                         }
-                        
                     }
-                    
-                    .navigationDestination(for: Int.self) { i in
-                        // 음악 세부사항 View 넣기
-                    }
-                    .navigationTitle("GuMusic")
-                    
-                    
-                
                 }
-         
+                .navigationTitle("GuMusic")
+            }
         }
-        
     }
-    
-    
 }
 
 struct MusicList: View {
@@ -53,14 +49,19 @@ struct MusicList: View {
     var body: some View {
     
             HStack {
-                AsyncImage(url: URL(string: musicStore.musics[i].image.first?.text ?? "" ))
-                    .frame(width: 50, height: 50)
+                AsyncImage(url: URL(string: musicStore.musics[i].image)){ image in
+                    image.resizable()
+                } placeholder: {
+                    ProgressView()
+                }
+                .frame(width: 80, height: 80)
+                    
                 
                 VStack(alignment: .leading, content: {
-                    Text(musicStore.musics[i].name)
+                    Text(musicStore.musics[i].title)
                         .font(.headline)
                         .lineLimit(3) //3줄까지만 제한을 둔다.
-                    Text(musicStore.musics[i].artist.name)
+                    Text(musicStore.musics[i].artist)
                     
                         
                 })

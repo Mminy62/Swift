@@ -12,6 +12,9 @@ struct PlayMusic: View {
     @StateObject var musicStore: MusicStore = MusicStore(musics: musicData)
     @Binding var selectedIdx: Int
     
+    @Binding var PlayList : [MusicElement]
+    
+    
     var body: some View {
         ZStack{
             VStack{
@@ -34,10 +37,41 @@ struct PlayMusic: View {
                 // Drawer content
                 ZStack {
                     Color.gray.opacity(0.9)
-                    Text("Hello Drawer")
-                        .font(.system(size: 24))
-                        .foregroundColor(Color.white)
+                    NavigationView {
+                        VStack{
+                            List {
+                                ForEach(0..<PlayList.count, id: \.self) { i in
+                                    HStack{
+                                        AsyncImage(url: URL(string: PlayList[i].image.first?.text ?? ""))
+                                            .frame(width: 50, height: 50)
+                                        VStack(alignment: .leading){
+                                            Text(PlayList[i].name)
+                                                .font(.headline)
+                                                .foregroundStyle(.white)
+                                            Text(PlayList[i].name)
+                                                .font(.body)
+                                                .foregroundStyle(.gray)
+                                        }
+                                    }
+                                    .listRowBackground(Color.gray.opacity(0.9))
+                                }
+                                .onMove(perform: moveArtist)
+                                .onDelete(perform: deleteArtist)
+                            }
+                            .scrollContentBackground(.hidden)
+                            
+                        }
+                        .background(Color.gray.opacity(0.9))
+                        .toolbar {
+                            ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
+                                EditButton()
+                            }
+                        }
+                    }
+                    
+                    
                 }
+                
             } pullUpView: { shouldGoUp in
                 // Drawer pull up view
                 ZStack {
@@ -51,6 +85,14 @@ struct PlayMusic: View {
                     }
                 }
             }
+    }
+    
+    func moveArtist(from source: IndexSet, to destination: Int) {
+        PlayList.move(fromOffsets: source, toOffset: destination)
+    }
+     
+    func deleteArtist(at offsets: IndexSet) {
+        PlayList.remove(atOffsets: offsets)
     }
 }
 
@@ -185,6 +227,5 @@ extension PlayMusic{
 }
 
 #Preview {
-    PlayMusic(selectedIdx: .constant(1))
+    PlayMusic(selectedIdx: .constant(1), PlayList: .constant([]) )
 }
-
