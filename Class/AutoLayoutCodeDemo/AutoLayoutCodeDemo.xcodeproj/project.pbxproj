@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52C9AFC62B033B4900CBCC52 /* VisualFormatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C9AFC52B033B4900CBCC52 /* VisualFormatView.swift */; };
+		52C9AFC82B033F1900CBCC52 /* VisualViewEx_01.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C9AFC72B033F1900CBCC52 /* VisualViewEx_01.swift */; };
+		52C9AFCA2B03495800CBCC52 /* VisualViewEx_02.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C9AFC92B03495800CBCC52 /* VisualViewEx_02.swift */; };
 		52F733972B01F8DF00A7AE8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F733962B01F8DF00A7AE8A /* AppDelegate.swift */; };
 		52F733992B01F8DF00A7AE8A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F733982B01F8DF00A7AE8A /* SceneDelegate.swift */; };
 		52F733A02B01F8E000A7AE8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52F7339F2B01F8E000A7AE8A /* Assets.xcassets */; };
@@ -20,6 +23,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		52C9AFC52B033B4900CBCC52 /* VisualFormatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualFormatView.swift; sourceTree = "<group>"; };
+		52C9AFC72B033F1900CBCC52 /* VisualViewEx_01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualViewEx_01.swift; sourceTree = "<group>"; };
+		52C9AFC92B03495800CBCC52 /* VisualViewEx_02.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualViewEx_02.swift; sourceTree = "<group>"; };
 		52F733932B01F8DF00A7AE8A /* AutoLayoutCodeDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoLayoutCodeDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52F733962B01F8DF00A7AE8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52F733982B01F8DF00A7AE8A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +78,9 @@
 				52F733B12B02115A00A7AE8A /* ViewEx_02.swift */,
 				52F733B52B02384C00A7AE8A /* ViewEx_04.swift */,
 				52F733B32B0216A400A7AE8A /* ViewEx_05.swift */,
+				52C9AFC52B033B4900CBCC52 /* VisualFormatView.swift */,
+				52C9AFC72B033F1900CBCC52 /* VisualViewEx_01.swift */,
+				52C9AFC92B03495800CBCC52 /* VisualViewEx_02.swift */,
 				52F7339C2B01F8DF00A7AE8A /* Main.storyboard */,
 				52F7339F2B01F8E000A7AE8A /* Assets.xcassets */,
 				52F733A12B01F8E000A7AE8A /* LaunchScreen.storyboard */,
@@ -155,8 +164,11 @@
 			files = (
 				52F733972B01F8DF00A7AE8A /* AppDelegate.swift in Sources */,
 				52F733B62B02384C00A7AE8A /* ViewEx_04.swift in Sources */,
+				52C9AFCA2B03495800CBCC52 /* VisualViewEx_02.swift in Sources */,
 				52F733AF2B0208D400A7AE8A /* ViewEx_01.swift in Sources */,
 				52F733992B01F8DF00A7AE8A /* SceneDelegate.swift in Sources */,
+				52C9AFC82B033F1900CBCC52 /* VisualViewEx_01.swift in Sources */,
+				52C9AFC62B033B4900CBCC52 /* VisualFormatView.swift in Sources */,
 				52F733B22B02115A00A7AE8A /* ViewEx_02.swift in Sources */,
 				52F733B42B0216A400A7AE8A /* ViewEx_05.swift in Sources */,
 			);

@@ -22,7 +22,7 @@ class ViewEx_04: UIViewController {
         
         let Button = UIButton()
         Button.translatesAutoresizingMaskIntoConstraints = false
-        Button.configur2ation = .tinted()
+        Button.configuration = .tinted()
         Button.setTitle("Tab Me", for: .normal)
         
         superview?.addSubview(Button)
