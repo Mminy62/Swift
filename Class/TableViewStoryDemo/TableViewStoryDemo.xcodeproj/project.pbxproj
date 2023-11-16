@@ -15,6 +15,7 @@
 		5212C4542B059CAF0029191F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5212C4522B059CAF0029191F /* LaunchScreen.storyboard */; };
 		5212C45C2B059E0B0029191F /* AttractionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5212C45B2B059E0B0029191F /* AttractionTableViewController.swift */; };
 		5212C4802B05B4FF0029191F /* AttractionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5212C47F2B05B4FF0029191F /* AttractionTableViewCell.swift */; };
+		5212C48C2B05DE0B0029191F /* AttractionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5212C48B2B05DE0B0029191F /* AttractionDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		5212C4552B059CAF0029191F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5212C45B2B059E0B0029191F /* AttractionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionTableViewController.swift; sourceTree = "<group>"; };
 		5212C47F2B05B4FF0029191F /* AttractionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionTableViewCell.swift; sourceTree = "<group>"; };
+		5212C48B2B05DE0B0029191F /* AttractionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				5212C4492B059CAE0029191F /* SceneDelegate.swift */,
 				5212C44B2B059CAE0029191F /* ViewController.swift */,
 				5212C44D2B059CAE0029191F /* Main.storyboard */,
+				5212C48B2B05DE0B0029191F /* AttractionDetailViewController.swift */,
 				5212C47F2B05B4FF0029191F /* AttractionTableViewCell.swift */,
 				5212C45B2B059E0B0029191F /* AttractionTableViewController.swift */,
 				5212C4502B059CAF0029191F /* Assets.xcassets */,
@@ -146,6 +149,7 @@
 			files = (
 				5212C4802B05B4FF0029191F /* AttractionTableViewCell.swift in Sources */,
 				5212C44C2B059CAE0029191F /* ViewController.swift in Sources */,
+				5212C48C2B05DE0B0029191F /* AttractionDetailViewController.swift in Sources */,
 				5212C4482B059CAE0029191F /* AppDelegate.swift in Sources */,
 				5212C45C2B059E0B0029191F /* AttractionTableViewController.swift in Sources */,
 				5212C44A2B059CAE0029191F /* SceneDelegate.swift in Sources */,

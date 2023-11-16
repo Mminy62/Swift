@@ -35,30 +35,31 @@ class AttractionTableViewController: UITableViewController {
     // 앱이 로드될 때 일부 데이터로 배열을 초기화
     func initialize(){
         attractionNames = ["Buckingham Palace",
-                                  "The Eiffel Tower",
-                                  "The Grand Canyon",
-                                  "Windsor Castle",
-                                  "Empire State Building"]
-
-       webAddresses = ["https://en.wikipedia.org/wiki/Buckingham_Palace",
-                       "https://en.wikipedia.org/wiki/Eiffel_Tower",
-                       "https://en.wikipedia.org/wiki/Grand_Canyon",
-                       "https://en.wikipedia.org/wiki/Windsor_Castle",
-                       "https://en.wikipedia.org/wiki/Empire_State_Building"]
-
-       attractionImages = ["buckingham_palace.jpg",
-                           "eiffel_tower.jpg",
-                           "grand_canyon.jpg",
-                           "windsor_castle.jpg",
-                           "empire_state_building.jpg"]
-
-       // 테이블 뷰의 예상 행 높이 설정
-       // 테이블 보기 탐색을 추가할 때 행 높이가 축소되는 것을 방지하고, 테이블 렌더링 성능도 향상
-       self.tableView.estimatedRowHeight = 50
-    
+                           "The Eiffel Tower",
+                           "The Grand Canyon",
+                           "Windsor Castle",
+                           "Empire State Building"]
+        
+        webAddresses = ["https://en.wikipedia.org/wiki/Buckingham_Palace",
+                        "https://en.wikipedia.org/wiki/Eiffel_Tower",
+                        "https://en.wikipedia.org/wiki/Grand_Canyon",
+                        "https://en.wikipedia.org/wiki/Windsor_Castle",
+                        "https://en.wikipedia.org/wiki/Empire_State_Building"]
+        
+        attractionImages = ["buckingham_palace.jpg",
+                            "eiffel_tower.jpg",
+                            "grand_canyon.jpg",
+                            "windsor_castle.jpg",
+                            "empire_state_building.jpg"]
+        
+        // 테이블 뷰의 예상 행 높이 설정
+        // 테이블 보기 탐색을 추가할 때 행 높이가 축소되는 것을 방지하고, 테이블 렌더링 성능도 향상
+        
+        self.tableView.estimatedRowHeight = 50
+        
+        navigationController?.navigationBar.prefersLargeTitles = true
         
     }
-    
     // 뷰가 보일때 마다 리스트의 데이터 다시 불러옴
     override func viewWillAppear(_ animated: Bool) {
         tvListView.reloadData()
@@ -165,14 +166,20 @@ class AttractionTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    // data 전달
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "ShowAttractionDetails" {
+            let detailView = segue.destination as! AttractionDetailViewController
+
+            // 현재 테이블 뷰에 선택된 행의 순서를 가져옴
+            let row = self.tableView.indexPathForSelectedRow!.row
+            detailView.webSite = webAddresses[row]
+        }
+        
     }
-    */
+    
 
 }
