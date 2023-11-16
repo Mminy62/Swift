@@ -10,7 +10,6 @@ import UIKit
 class AttractionTableViewController: UITableViewController {
 
     // 테이블 목록
-    var items = ["Kim", "Lee", "Park"]
     var attractionImages = [String]()
     var attractionNames = [String]()
     var webAddresses = [String]()
@@ -73,11 +72,13 @@ class AttractionTableViewController: UITableViewController {
         // 목록들은 몇개로 나눠서 나오개 할 건지를 정하는 것
         return 1
     }
+    
 
     // 섹션별 행의 개수 # 데이터 목록 개수
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return items.count
+            
+            return attractionNames.count
     }
 
     // 셀에 디자인 한 것을 입혀준다
@@ -90,9 +91,10 @@ class AttractionTableViewController: UITableViewController {
 
          //Configure the cell...
         // indexPath.row -> 각 row별 index
-        cell.attractionLabel.font =  UIFont.preferredFont(forTextStyle: UIFont.TextStyle.headline)
-        cell.textLabel?.text = items[indexPath.row]
-        cell.imageView?.image = UIImage(systemName: "square.and.arrow.up")
+        let row = indexPath.row
+        cell.attractionLabel.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.headline)
+        cell.attractionLabel.text = attractionNames[row]
+        cell.attractionImage.image = UIImage(named: attractionImages[row])
         
         return cell
     }
@@ -109,16 +111,23 @@ class AttractionTableViewController: UITableViewController {
     */
 
     
+    // 목록 이동하기
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            items.remove(at: indexPath.row)
+            let row = indexPath.row
+            self.attractionNames.remove(at: row)
+            self.attractionImages.remove(at: row)
+            self.webAddresses.remove(at: row)
+            
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
-//            else if editingStyle == .insert {
-//            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-//        }    
+        
+        
+            else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }    
     }
     
     // Delete를 한글로 변경
@@ -133,14 +142,18 @@ class AttractionTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
         
         // 이동할 아이템 위치를 기록
-        let itemRow = items[fromIndexPath.row]
+        var row = fromIndexPath.row
         
         // 이동할 아이템을 삭제
-        items.remove(at: fromIndexPath.row)
-        
+        let attractionName = self.attractionNames.remove(at: row)
+        let attractionImage = self.attractionImages.remove(at: row)
+        let webAddress = self.webAddresses.remove(at: row)
         
         // 삭제된 아이템을 이동할 위치로 삽입
-        items.insert(itemRow, at: to.row)
+        row = to.row
+        self.attractionNames.insert(attractionName, at: row)
+        self.attractionImages.insert(attractionImage, at:row)
+        self.webAddresses.insert(webAddress, at:row)
     }
     
 
