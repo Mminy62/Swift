@@ -7,12 +7,19 @@
 
 import UIKit
 
-class AttractionTableViewController: UITableViewController {
-
+class AttractionTableViewController: UITableViewController, UISearchBarDelegate, UISearchResultsUpdating {
+    
     // 테이블 목록
     var attractionImages = [String]()
     var attractionNames = [String]()
     var webAddresses = [String]()
+    
+    
+    // UISearchController 인스턴스 및 일치하는 검색 결과가 저장될 배열 추가
+    var searching = false // 서칭중이다
+    var matches = [Int]()
+    var searchController = UISearchController(searchResultsController: nil)
+    
     
     @IBOutlet var tvListView: UITableView!
     
@@ -59,7 +66,43 @@ class AttractionTableViewController: UITableViewController {
         
         navigationController?.navigationBar.prefersLargeTitles = true
         
+        // 검색 초기화
+        // 테이블 보기 컨트롤러 인스턴스를 검색 컨트롤러에 대한 검색 창 및 결과 업데이트 위임지로 지정
+        // 검색으로 인해 검색 결과 보기 컨트롤러가 모호해지는 것을 방지하기 위한 속성을 설정
+        searchController.searchBar.delegate = self
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.placeholder = "Search Attractions"
+        searchController.obscuresBackgroundDuringPresentation = false
+        
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
     }
+    
+    
+    // 결과 업데이트
+    // 검색 창에 입력된 텍스트가 포함된 검색 컨트롤러 개체에 대한 참조가 전달됨.
+    func updateSearchResults(for searchController: UISearchController) {
+        if let searchText = searchController.searchBar.text, !searchText.isEmpty{
+            //???
+            matches.removeAll()
+            
+            for index in 0..<attractionNames.count{
+                if attractionNames[index].lowercased().contains(searchText.lowercased()){
+                    matches.append(index)
+                }
+                
+            }
+            
+            searching = true
+        } else {
+            searching = false
+        }
+        
+        tableView.reloadData()
+
+    }
+    
+    
     // 뷰가 보일때 마다 리스트의 데이터 다시 불러옴
     override func viewWillAppear(_ animated: Bool) {
         tvListView.reloadData()
@@ -76,13 +119,15 @@ class AttractionTableViewController: UITableViewController {
     
 
     // 섹션별 행의 개수 # 데이터 목록 개수
+    // 검색 모드에서 행 수는 일치한 배열의 항목 수에 따라 달라짐
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        
             
-            return attractionNames.count
+        return searching ? matches.count : attractionNames.count
     }
 
-    // 셀에 디자인 한 것을 입혀준다
+    // item 값을 셀에 추가
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // 스토리보드 Id 설정한 뷰의 ID를 넣는 것 -> with Identifier
 
@@ -94,8 +139,9 @@ class AttractionTableViewController: UITableViewController {
         // indexPath.row -> 각 row별 index
         let row = indexPath.row
         cell.attractionLabel.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.headline)
-        cell.attractionLabel.text = attractionNames[row]
-        cell.attractionImage.image = UIImage(named: attractionImages[row])
+        cell.attractionLabel.text = searching ? attractionNames[matches[row]] : attractionNames[row]
+        let imageName = searching ? attractionImages[matches[row]]  : attractionImages[row]
+        cell.attractionImage.image = UIImage(named: imageName)
         
         return cell
     }
