@@ -11,6 +11,9 @@ class AttractionTableViewController: UITableViewController {
 
     // 테이블 목록
     var items = ["Kim", "Lee", "Park"]
+    var attractionImages = [String]()
+    var attractionNames = [String]()
+    var webAddresses = [String]()
     
     @IBOutlet var tvListView: UITableView!
     
@@ -21,7 +24,45 @@ class AttractionTableViewController: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        
+        //edit가 끝나면 초기화 하게 만드는 함수
+        initialize()
+        
+    }
+    
+    // 테이블 뷰 데이터 소스 생성
+    // 앱이 로드될 때 일부 데이터로 배열을 초기화
+    func initialize(){
+        attractionNames = ["Buckingham Palace",
+                                  "The Eiffel Tower",
+                                  "The Grand Canyon",
+                                  "Windsor Castle",
+                                  "Empire State Building"]
+
+       webAddresses = ["https://en.wikipedia.org/wiki/Buckingham_Palace",
+                       "https://en.wikipedia.org/wiki/Eiffel_Tower",
+                       "https://en.wikipedia.org/wiki/Grand_Canyon",
+                       "https://en.wikipedia.org/wiki/Windsor_Castle",
+                       "https://en.wikipedia.org/wiki/Empire_State_Building"]
+
+       attractionImages = ["buckingham_palace.jpg",
+                           "eiffel_tower.jpg",
+                           "grand_canyon.jpg",
+                           "windsor_castle.jpg",
+                           "empire_state_building.jpg"]
+
+       // 테이블 뷰의 예상 행 높이 설정
+       // 테이블 보기 탐색을 추가할 때 행 높이가 축소되는 것을 방지하고, 테이블 렌더링 성능도 향상
+       self.tableView.estimatedRowHeight = 50
+    
+        
+    }
+    
+    // 뷰가 보일때 마다 리스트의 데이터 다시 불러옴
+    override func viewWillAppear(_ animated: Bool) {
+        tvListView.reloadData()
     }
 
     // MARK: - Table view data source
@@ -42,10 +83,16 @@ class AttractionTableViewController: UITableViewController {
     // 셀에 디자인 한 것을 입혀준다
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // 스토리보드 Id 설정한 뷰의 ID를 넣는 것 -> with Identifier
-        let cell = tableView.dequeueReusableCell(withIdentifier: "AttractionTableCell", for: indexPath)
+
+        // 'AttractionTableCell' 부분은 스토리보드 화면에서 테이블 뷰 셀'Table View Cell' 의 Identifier 에 넣은 이름으로 채움
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AttractionTableCell", for: indexPath) as! AttractionTableViewCell
+        
 
          //Configure the cell...
+        // indexPath.row -> 각 row별 index
+        cell.attractionLabel.font =  UIFont.preferredFont(forTextStyle: UIFont.TextStyle.headline)
         cell.textLabel?.text = items[indexPath.row]
+        cell.imageView?.image = UIImage(systemName: "square.and.arrow.up")
         
         return cell
     }
@@ -61,24 +108,41 @@ class AttractionTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            items.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
+//            else if editingStyle == .insert {
+//            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+//        }    
     }
-    */
+    
+    // Delete를 한글로 변경
+    override func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return "삭제"
+    }
+    
+    
 
-    /*
+    // 목록 순서 바꾸기
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+        
+        // 이동할 아이템 위치를 기록
+        let itemRow = items[fromIndexPath.row]
+        
+        // 이동할 아이템을 삭제
+        items.remove(at: fromIndexPath.row)
+        
+        
+        // 삭제된 아이템을 이동할 위치로 삽입
+        items.insert(itemRow, at: to.row)
     }
-    */
+    
 
     /*
     // Override to support conditional rearranging of the table view.
