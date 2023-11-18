@@ -76,12 +76,16 @@ class AttractionTableViewController: UITableViewController, UISearchBarDelegate,
         
         navigationItem.searchController = searchController
         definesPresentationContext = true
+        
+
     }
     
     
     // 결과 업데이트
     // 검색 창에 입력된 텍스트가 포함된 검색 컨트롤러 개체에 대한 참조가 전달됨.
     func updateSearchResults(for searchController: UISearchController) {
+        
+        
         if let searchText = searchController.searchBar.text, !searchText.isEmpty{
             //???
             matches.removeAll()
@@ -99,7 +103,12 @@ class AttractionTableViewController: UITableViewController, UISearchBarDelegate,
         }
         
         tableView.reloadData()
-
+        
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+            searching = false
+            tableView.reloadData()
     }
     
     
@@ -158,17 +167,40 @@ class AttractionTableViewController: UITableViewController, UISearchBarDelegate,
     */
 
     
-    // 목록 이동하기
+    // 목록 삭제(검색 적용)
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    
         if editingStyle == .delete {
             // Delete the row from the data source
-            let row = indexPath.row
-            self.attractionNames.remove(at: row)
-            self.attractionImages.remove(at: row)
-            self.webAddresses.remove(at: row)
             
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            // 삭제할 아이템 위치를 기록
+            
+            let row = indexPath.row
+            
+            
+            // 검색 적용 // 검색 중에 삭제하기
+            if searching{
+                
+                self.attractionNames.remove(at: matches[row])
+                self.attractionImages.remove(at: matches[row])
+                self.webAddresses.remove(at: matches[row])
+                self.matches.remove(at: row)
+                
+                // 검색 중에 삭제하면 다시 검색하도록 서치 초기화를 해야한다
+                self.updateSearchResults(for: searchController)
+                
+                
+            } else{
+                
+                self.attractionNames.remove(at: row)
+                self.attractionImages.remove(at: row)
+                self.webAddresses.remove(at: row)
+                
+            }
+            
+            
+          //  tableView.deleteRows(at: [indexPath], with: .fade)
         }
         
         
@@ -201,6 +233,30 @@ class AttractionTableViewController: UITableViewController, UISearchBarDelegate,
         self.attractionNames.insert(attractionName, at: row)
         self.attractionImages.insert(attractionImage, at:row)
         self.webAddresses.insert(webAddress, at:row)
+        
+        
+//        if searching{
+//            
+//            
+//            
+//            
+//            
+//        } else{
+//            
+//            // 이동할 아이템을 삭제
+//            let attractionName = self.attractionNames.remove(at: row)
+//            let attractionImage = self.attractionImages.remove(at: row)
+//            let webAddress = self.webAddresses.remove(at: row)
+//            
+//            // 삭제된 아이템을 이동할 위치로 삽입
+//            row = to.row
+//            self.attractionNames.insert(attractionName, at: row)
+//            self.attractionImages.insert(attractionImage, at:row)
+//            self.webAddresses.insert(webAddress, at:row)
+//            
+//        }
+        
+        
     }
     
 
@@ -214,6 +270,7 @@ class AttractionTableViewController: UITableViewController, UISearchBarDelegate,
 
     
     // MARK: - Navigation
+    //(검색 적용 완료)
     // data 전달
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -222,7 +279,7 @@ class AttractionTableViewController: UITableViewController, UISearchBarDelegate,
 
             // 현재 테이블 뷰에 선택된 행의 순서를 가져옴
             let row = self.tableView.indexPathForSelectedRow!.row
-            detailView.webSite = webAddresses[row]
+            detailView.webSite = searching ? webAddresses[ matches[row]] : webAddresses[row]
         }
         
     }
