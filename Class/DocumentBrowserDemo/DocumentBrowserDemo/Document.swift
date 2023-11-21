@@ -13,8 +13,14 @@ class Document: UIDocument {
     
     override func contents(forType typeName: String) throws -> Any {
         // Encode your document with an instance of NSData or NSFileWrapper
-        return Data()
-    }
+        if let content = userText {
+            let length = content.lengthOfBytes(using: String.Encoding.utf8)
+            return NSData(bytes: content, length: length)
+        } else {
+            return Data()
+        }
+    
+}
     
     override func load(fromContents contents: Any, ofType typeName: String?) throws {
         if let userContent = contents as? Data {

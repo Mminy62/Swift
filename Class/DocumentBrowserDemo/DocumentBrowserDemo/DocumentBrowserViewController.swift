@@ -30,7 +30,8 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
     
     // MARK: UIDocumentBrowserViewControllerDelegate
     
-    // importHandler로 newDocument를 copy하고 시작한다는 것
+    
+    // + create document 누르면 실행하는 함수
     func documentBrowser(_ controller: UIDocumentBrowserViewController, didRequestDocumentCreationWithHandler importHandler: @escaping (URL?, UIDocumentBrowserViewController.ImportMode) -> Void) {
         
         let newDocumentURL: URL? = Bundle.main.url(forResource: "template", withExtension: "txt")
@@ -39,6 +40,7 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
         // Make sure the importHandler is always called, even if the user cancels the creation request.
         if newDocumentURL != nil {
             importHandler(newDocumentURL, .copy)
+            // importHandler로 newDocument이 이미 있으면 copy하고 시작한다는 것
         } else {
             importHandler(nil, .none)
         }

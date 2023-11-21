@@ -7,30 +7,51 @@
 
 import UIKit
 
-class DocumentViewController: UIDocumentViewController {
+class DocumentViewController: UIViewController {
 
     @IBOutlet weak var documentNameLabel: UILabel!
 
+    @IBOutlet var documentText: UITextView!
+    
+    var document: Document?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.updateViewsIfNecessary()
-    }
 
-    override func documentDidOpen() {
-        super.documentDidOpen()
-        self.updateViewsIfNecessary()
     }
-
-    func updateViewsIfNecessary() {
-        // Check if the document is open and the view is loaded
-        guard let document, !document.documentState.contains(.closed) else { return }
-        guard isViewLoaded else { return }
-
-        // Display the content of the document, e.g.:
-        self.documentNameLabel.text = document.localizedName
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        document?.open(completionHandler: { (success) in
+            if success {
+                self.documentNameLabel.text = self.document?.fileURL.lastPathComponent
+                self.documentText.text = self.document?.userText
+            } else {
+                
+            }
+            })
     }
+    
 
     @IBAction func dismissDocumentViewController() {
         dismiss(animated: true)
+    }
+    
+    @IBAction func saveFile(_ sender: Any) {
+        document?.userText = documentText.text
+        
+        if let url = document?.fileURL{
+            // 이미 파일이 있는 경우, 다시 생성할건지 오버라이팅 할건지 -> for
+            document?.save(to: url, for: .forOverwriting, completionHandler: { (success) in
+                print(url)
+                if success{
+                    print("File save OK!")
+                } else {
+                    print("File save failed!")
+                }
+            })
+        }
+        
     }
 }
