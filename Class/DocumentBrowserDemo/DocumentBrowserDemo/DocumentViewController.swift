@@ -22,7 +22,7 @@ class DocumentViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        // 파일이 있는 경우 -> 클릭했을 때 보이는 함수
         document?.open(completionHandler: { (success) in
             if success {
                 self.documentNameLabel.text = self.document?.fileURL.lastPathComponent
