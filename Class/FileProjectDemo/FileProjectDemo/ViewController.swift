@@ -51,6 +51,148 @@ class ViewController: UIViewController {
             fileMgr.createFile(atPath: dataFile, contents: databuffer, attributes: nil)
 
             simpleAlert("저장성공!!")
+            //ex_01()
+//            ex_02()
+//            ex_03()
+//            ex_04()
+            ex_05()
+        }
+    }
+    
+    func ex_01(){
+        let fileManager = FileManager.default
+        let currentPath = fileManager.currentDirectoryPath
+        
+        do{
+            let files = try fileManager.contentsOfDirectory(atPath: currentPath)
+            for file in files.sorted(){
+                let filePath = currentPath + "/" + file
+//                let attribs: NSDictionary = try fileManager.attributesOfItem(atPath: currentPath) as NSDictionary
+//                print(attribs) // 디렉토리 안에 있는 각 파일에 속성들
+//                let fileSize = attribs["NSFileSize"] as! UInt64
+//                print(file)
+                
+                if let attribs = try? fileManager.attributesOfItem(atPath: filePath),
+                   let filesize = attribs[.size] as? UInt64{
+                    print("\(file): \(filesize)")
+                }
+                    
+            }
+        }
+        catch{
+            
+        }
+        
+    }
+    
+    func ex_02(){
+        let fileManager = FileManager.default
+        
+        do{
+            let sourcePath = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0].path
+            let destinationPath = sourcePath + "/" + "Backup"
+            
+            try fileManager.createDirectory(atPath: destinationPath, withIntermediateDirectories: true)
+            // sourcePath에 있는 파일들 가져오기
+            let files = try fileManager.contentsOfDirectory(atPath: sourcePath)
+            for file in files{
+                let filePath = sourcePath + "/" + file
+                //확장자 구분
+                let fileExtension = (file as NSString).pathExtension.lowercased()
+                // 파일 확장자가 "dat"인 것만 복사
+                if fileExtension == "dat"{
+                    let destinationFile = destinationPath + "/" + file
+                    try fileManager.copyItem(atPath: filePath, toPath: destinationPath)
+
+                }
+            }
+            
+        } catch {
+            print(error)
+        }
+    }
+    
+    
+    func ex_03(){
+        let fileManager = FileManager.default
+        
+        do{
+            let sourceFile = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("data2file.dat").path
+            let destinationFile = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("reversed.txt").path
+            
+            // 텍스트를 역순으로 바꾸어 저장하는 코드
+            let data = try Data(contentsOf: URL(fileURLWithPath: sourceFile))
+            if let text = String(data: data, encoding: .utf8){
+                let reversedText = String(text.reversed())
+                if let reverseData = reversedText.data(using: .utf8){
+                    try reverseData.write(to: URL(fileURLWithPath: destinationFile))
+                }
+            }
+            
+
+            
+        } catch {
+            print(error)
+        }
+    }
+    
+    func ex_04(){
+        let fileManager = FileManager.default
+        
+        do{
+            let sourceFile = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("datafile.dat").path
+            let destinationFile = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("summary.txt").path
+            
+            // 숫자들의 합계와 평균을 구하고 저장하는 코드를 작성하세요.
+            let data = try Data(contentsOf: URL(fileURLWithPath: sourceFile))
+            if let text = String(data: data, encoding: .utf8){
+                let numbers = text.split(separator: ", ").compactMap{ Int($0) }
+                let sum = numbers.reduce(0, +)
+                
+                let average = Double(sum) / Double(numbers.count)
+                
+                let summary = "합계: \(sum), 평균: \(average)"
+                
+                if let calData = summary.data(using: .utf8){
+                    try calData.write(to: URL(fileURLWithPath: destinationFile))
+                }
+            }
+
+        } catch {
+            print(error)
+        }
+    }
+    
+    
+    func ex_05(){
+        let fileManager = FileManager.default
+        
+        do{
+            let sourceFile = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("datafile.dat").path
+            let destinationFile = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("frequency.txt").path
+            
+            // 숫자들의 합계와 평균을 구하고 저장하는 코드를 작성하세요.
+            let data = try Data(contentsOf: URL(fileURLWithPath: sourceFile))
+            if let text = String(data: data, encoding: .utf8){
+                
+                let words = text.split(separator: " ").map{ $0.lowercased() }
+                var frequency = [String:Int]()
+                for word in words{
+                    frequency[word, default: 0] += 1
+                }
+                
+                var result = ""
+                for (word, count) in frequency{
+                    result += "\(word): \(count)\n"
+                }
+                
+                if let resultData = result.data(using: .utf8){
+                    try resultData.write(to: URL(fileURLWithPath: destinationFile))
+                }
+            }
+
+        } catch {
+            print(error)
         }
     }
     
