@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="DatabaseDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vOr-4o-GLg">
+                                <rect key="frame" x="52" y="96.666666666666671" width="45" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CAY-I4-GUs">
+                                <rect key="frame" x="52" y="149.66666666666666" width="63" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T6H-ac-giW">
+                                <rect key="frame" x="52" y="202.66666666666666" width="49" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nnc-Hd-Wns">
+                                <rect key="frame" x="176" y="263" width="41.333333333333343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NCc-S5-DRt">
+                                <rect key="frame" x="273" y="316" width="65" height="41"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Find">
+                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle2"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="findContact:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TvH-F8-8td"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LNN-0m-nJ8">
+                                <rect key="frame" x="148" y="91" width="181" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="181" id="i9F-fY-isB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SHc-Ym-oTR">
+                                <rect key="frame" x="148" y="144" width="181" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HlN-Rp-dFs">
+                                <rect key="frame" x="148" y="197" width="181" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="icL-g7-QLv">
+                                <rect key="frame" x="52" y="316" width="71" height="41"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Save">
+                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle2"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="saveContact:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Sv5-yD-AmY"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                        <constraints>
+                            <constraint firstItem="icL-g7-QLv" firstAttribute="leading" secondItem="vOr-4o-GLg" secondAttribute="leading" id="2Mc-PC-Z2l"/>
+                            <constraint firstItem="CAY-I4-GUs" firstAttribute="top" secondItem="vOr-4o-GLg" secondAttribute="bottom" constant="32" id="6K4-bP-0CS"/>
+                            <constraint firstItem="SHc-Ym-oTR" firstAttribute="firstBaseline" secondItem="CAY-I4-GUs" secondAttribute="firstBaseline" id="8tV-RA-dVM"/>
+                            <constraint firstItem="vOr-4o-GLg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="32" id="Hdm-dg-MLF"/>
+                            <constraint firstItem="NCc-S5-DRt" firstAttribute="firstBaseline" secondItem="icL-g7-QLv" secondAttribute="firstBaseline" id="LMU-JR-aAZ"/>
+                            <constraint firstItem="HlN-Rp-dFs" firstAttribute="leading" secondItem="LNN-0m-nJ8" secondAttribute="leading" id="Onb-Pe-KiF"/>
+                            <constraint firstItem="HlN-Rp-dFs" firstAttribute="trailing" secondItem="LNN-0m-nJ8" secondAttribute="trailing" id="QVu-s7-IaD"/>
+                            <constraint firstItem="LNN-0m-nJ8" firstAttribute="firstBaseline" secondItem="vOr-4o-GLg" secondAttribute="firstBaseline" id="SSq-Sg-4l9"/>
+                            <constraint firstItem="HlN-Rp-dFs" firstAttribute="firstBaseline" secondItem="T6H-ac-giW" secondAttribute="firstBaseline" id="U3U-AR-oYf"/>
+                            <constraint firstItem="LNN-0m-nJ8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="32" id="ccz-Af-IMu"/>
+                            <constraint firstItem="nnc-Hd-Wns" firstAttribute="top" secondItem="HlN-Rp-dFs" secondAttribute="bottom" constant="32" id="cty-m3-IKw"/>
+                            <constraint firstItem="SHc-Ym-oTR" firstAttribute="leading" secondItem="LNN-0m-nJ8" secondAttribute="leading" id="dRg-Lh-VO8"/>
+                            <constraint firstItem="CAY-I4-GUs" firstAttribute="leading" secondItem="vOr-4o-GLg" secondAttribute="leading" id="hkd-6U-o9c"/>
+                            <constraint firstItem="LNN-0m-nJ8" firstAttribute="leading" secondItem="vOr-4o-GLg" secondAttribute="trailing" constant="51" id="hxC-Ku-pj0"/>
+                            <constraint firstItem="icL-g7-QLv" firstAttribute="top" secondItem="nnc-Hd-Wns" secondAttribute="bottom" constant="32" id="iI7-NM-2O0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NCc-S5-DRt" secondAttribute="trailing" constant="55" id="kqk-GK-brP"/>
+                            <constraint firstItem="SHc-Ym-oTR" firstAttribute="trailing" secondItem="LNN-0m-nJ8" secondAttribute="trailing" id="sIa-Jc-ute"/>
+                            <constraint firstItem="T6H-ac-giW" firstAttribute="leading" secondItem="vOr-4o-GLg" secondAttribute="leading" id="thr-AR-euI"/>
+                            <constraint firstItem="nnc-Hd-Wns" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uEX-bU-x6E"/>
+                            <constraint firstItem="T6H-ac-giW" firstAttribute="top" secondItem="CAY-I4-GUs" secondAttribute="bottom" constant="32" id="uUD-6m-49M"/>
+                            <constraint firstItem="vOr-4o-GLg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="52" id="yca-8s-Gv1"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="address" destination="SHc-Ym-oTR" id="9vy-Er-r6j"/>
+                        <outlet property="name" destination="LNN-0m-nJ8" id="HOX-tV-vS1"/>
+                        <outlet property="phone" destination="HlN-Rp-dFs" id="fep-Tw-zT9"/>
+                        <outlet property="status" destination="nnc-Hd-Wns" id="vVk-n6-r4s"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="101.5267175572519" y="3.5211267605633805"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
