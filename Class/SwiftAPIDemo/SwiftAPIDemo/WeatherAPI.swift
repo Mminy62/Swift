@@ -11,6 +11,7 @@ import SwiftUI
 struct Weather: Decodable{
     let coord: Location
     let weather: [WeatherInfo]
+    let name: String
 }
 
 struct Location: Decodable{
@@ -26,9 +27,48 @@ struct WeatherInfo: Decodable, Hashable{
 
 class WeatherAPI: ObservableObject{
     static let shared = WeatherAPI()
-    private init() { }
     @Published var weatherImg: String?
-    @Published var name: String?
+    @Published var weatherName: String?
+    @Published var city: String?
+    var lat: String
+    var lon: String
+    
+    
+    @StateObject var locationDataManager = LocationDataManager()
+    
+    
+    init(weatherImg: String? = nil, weatherName: String? = nil, city: String? = nil, lat: String  = "", lon: String = "") {
+        self.weatherImg = weatherImg
+        self.weatherName = weatherName
+        self.lat = lat
+        self.lon = lon
+    }
+    
+    func fetchLocation(){
+        switch locationDataManager.locationManager.authorizationStatus {
+        case .authorizedWhenInUse:  // Location services are available.
+            // Insert code here of what should happen when Location services are authorized
+            
+            if let coordinate = locationDataManager.locationManager.location?.coordinate {
+                self.lat = coordinate.latitude.description
+                self.lon = coordinate.longitude.description
+                print(self.lat, self.lon)
+            }
+            fetchData()
+        case .restricted, .denied:  // Location services currently unavailable.
+            // Insert code here of what should happen when Location services are NOT authorized
+            print("Current location data was restricted or denied.")
+        case .notDetermined:        // Authorization not determined yet.
+            print("Finding your location...")
+//            ProgressView()
+        default:
+//            ProgressView()
+            print("default")
+        }
+        
+      
+    }
+    
     
     // api key
     private var apiKey: String?{
@@ -53,13 +93,14 @@ class WeatherAPI: ObservableObject{
         }
     }
     
+    
     func fetchData(){
         guard let apiKey = apiKey else { return }
-        print(apiKey)
-        let lat = "37.6185"
-        let lon = "127.0787"
-        let urlString = "https://api.openweathermap.org/data/2.5/weather?lat=\(lat)&lon=\(lon)&appid=\(apiKey)"
-        //        let urlString = "https://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=9b15c20b31d5f4b50668ebaa3551b990"
+//        let lat = 37.5799386
+//        let lon = 126.8120882
+        
+        let urlString = "https://api.openweathermap.org/data/2.5/weather?lat=\(self.lat)&lon=\(self.lon)&appid=\(apiKey)"
+        print(urlString)
         
         
         guard let url = URL(string: urlString) else { return }
@@ -75,7 +116,9 @@ class WeatherAPI: ObservableObject{
             guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
                 // 정상적으로 값이 오지 않았을 때 처리
                 self.weatherImg = ""
-                self.name = ""
+                self.weatherName = ""
+                self.lat = ""
+                self.lon = ""
                 return
             }
             
@@ -85,16 +128,17 @@ class WeatherAPI: ObservableObject{
             }
             
             
-//            let str = String(decoding: data, as: UTF8.self)
-//            print(str)
+            //            let str = String(decoding: data, as: UTF8.self)
+            //            print(str)
             do {
                 let json = try JSONDecoder().decode(Weather.self, from: data)
-                
+                print(json)
                 DispatchQueue.main.async {
                     let imgString = json.weather[0].icon
                     self.weatherImg = "https://openweathermap.org/img/wn/\(imgString)@2x.png"
-                    print(self.weatherImg)
-                    self.name = json.weather[0].main
+
+                    self.weatherName = json.weather[0].main
+                    self.city = json.name
                 }
             } catch let error {
                 print(error.localizedDescription)
@@ -104,5 +148,7 @@ class WeatherAPI: ObservableObject{
         task.resume()
         
     }
+    
+
     
 }

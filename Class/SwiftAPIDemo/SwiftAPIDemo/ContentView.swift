@@ -6,13 +6,14 @@
 //
 
 import SwiftUI
-
-
+import _CoreLocationUI_SwiftUI
 
 struct ContentView: View {
     
     @StateObject var network = NewsAPI.shared
     @StateObject var weatherNetwork = WeatherAPI.shared
+    @StateObject var locationNetwork = LocationDataManager.shared
+    @StateObject var locationDataManager = LocationDataManager()
     
     var body: some View {
             
@@ -41,7 +42,7 @@ struct ContentView: View {
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(trailing:
                 HStack {
-                Text("\(weatherNetwork.name ?? "")")
+                Text("\(weatherNetwork.city ?? "")")
                 AsyncImage(url: URL(string: weatherNetwork.weatherImg ?? "")){ image in
                     image.resizable()
                     
@@ -58,14 +59,39 @@ struct ContentView: View {
             
         }
         
+        
+        
         .padding()
         .onAppear(){
-            weatherNetwork.fetchData()
+            
+            weatherNetwork.fetchLocation()
             network.fetchData()
+            /*fetchLocation*/()
+            
         }
     }
-        
     
+//    func fetchLocation(){
+//        switch locationDataManager.locationManager.authorizationStatus {
+//        case .authorizedWhenInUse:  // Location services are available.
+//            // Insert code here of what should happen when Location services are authorized
+//            let lat = locationDataManager.locationManager.location?.coordinate.latitude
+//            let lon = locationDataManager.locationManager.location?.coordinate.longitude
+//            print(lat, lon)
+//            
+//            
+//        case .restricted, .denied:  // Location services currently unavailable.
+//            // Insert code here of what should happen when Location services are NOT authorized
+//            print("Current location data was restricted or denied.")
+//        case .notDetermined:        // Authorization not determined yet.
+//            print("Finding your location...")
+////            ProgressView()
+//        default:
+////            ProgressView()
+//            print("default")
+//        }
+//      
+//    }
     
     
 }
