@@ -8,6 +8,8 @@
 import UIKit
 import MobileCoreServices
 import UniformTypeIdentifiers
+import AVKit
+import AVFoundation
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
 
@@ -72,6 +74,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 
                 if (newMeida == true) {
                     UIImageWriteToSavedPhotosAlbum(image, self, #selector(ViewController.image(image:didFinishSavingWithError:contextInfo:)), nil)
+                    
+                    // 오류가 발생하면 경고 상자를 통해 사용자에게 보고하고 싶은 경우
+                                   // UIImageWriteToSavedPhotosAlbum(image, self, #selector(ViewController.image(image:didFinishSavingWithError:contextInfo:)), nil)
                 }
                 
             }
@@ -90,5 +95,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
             self.dismiss(animated: true, completion: nil)
         }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+           let dest = segue.destination as! AVPlayerViewController
+           let url = URL(string: "https://www.ebookfrenzy.com/ios_book/movie/movie.mov")
+
+           if let movieURL = url {
+               dest.player = AVPlayer(url: movieURL)
+           }
+       }
+
 
 }
