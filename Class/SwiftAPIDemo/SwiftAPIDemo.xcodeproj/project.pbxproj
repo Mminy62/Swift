@@ -15,6 +15,7 @@
 		52506CD92B18847C00A8FBFF /* WeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52506CD82B18847C00A8FBFF /* WeatherAPI.swift */; };
 		52506CDB2B18B9EE00A8FBFF /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52506CDA2B18B9EE00A8FBFF /* LocationManager.swift */; };
 		52B86FAC2B1D61DA005673EC /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52B86FAB2B1D61DA005673EC /* ApiKeys.plist */; };
+		52B86FCE2B1DC278005673EC /* NewsWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B86FCD2B1DC278005673EC /* NewsWebView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		52506CD82B18847C00A8FBFF /* WeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPI.swift; sourceTree = "<group>"; };
 		52506CDA2B18B9EE00A8FBFF /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		52B86FAB2B1D61DA005673EC /* ApiKeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ApiKeys.plist; sourceTree = "<group>"; };
+		52B86FCD2B1DC278005673EC /* NewsWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsWebView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				52506CA72B18570C00A8FBFF /* SwiftAPIDemoApp.swift */,
 				52506CA92B18570C00A8FBFF /* ContentView.swift */,
 				52506CB82B1865F200A8FBFF /* NewsAPI.swift */,
+				52B86FCD2B1DC278005673EC /* NewsWebView.swift */,
 				52506CAB2B18570D00A8FBFF /* Assets.xcassets */,
 				52B86FAB2B1D61DA005673EC /* ApiKeys.plist */,
 				52506CAD2B18570D00A8FBFF /* Preview Content */,
@@ -154,6 +157,7 @@
 			files = (
 				52506CAA2B18570C00A8FBFF /* ContentView.swift in Sources */,
 				52506CD92B18847C00A8FBFF /* WeatherAPI.swift in Sources */,
+				52B86FCE2B1DC278005673EC /* NewsWebView.swift in Sources */,
 				52506CDB2B18B9EE00A8FBFF /* LocationManager.swift in Sources */,
 				52506CB92B1865F200A8FBFF /* NewsAPI.swift in Sources */,
 				52506CA82B18570C00A8FBFF /* SwiftAPIDemoApp.swift in Sources */,

@@ -15,29 +15,42 @@ struct ContentView: View {
     @StateObject var locationNetwork = LocationDataManager.shared
     @StateObject var locationDataManager = LocationDataManager()
     
+
+    
     var body: some View {
-            
+        
         NavigationStack(){
-            List{
-                ForEach(network.posts, id: \.self){ result in
-                    HStack{
-                        AsyncImage(url: URL(string: result.urlToImage ?? "")){ image in
-                            image.resizable()
-                            
-                        } placeholder: {
-                            ProgressView()
+            ScrollView{
+                LazyVGrid(columns: [ GridItem(.flexible()),  GridItem(.flexible())], content: {
+                    ForEach(network.posts, id: \.self) {result in
+                        NavigationLink(destination: NewsWebView(urlToLoad: result.url)){
+                            VStack{
+                                AsyncImage(url: URL(string: result.urlToImage ?? "")){ image in
+                                    image.resizable()
+                                    
+                                } placeholder: {
+                                    ProgressView()
+                                }
+                                
+                                .frame(maxWidth:140, maxHeight: 90, alignment: .topTrailing)
+                                
+                                
+                                Text(result.title)
+                                    .frame(width: 100, height: 90)
+                                    .minimumScaleFactor(0.5)
+                                
+                            }
                         }
-                        .frame(width: 120, height: 80)
-                        
-                        Text(result.title)
+                        .padding(5)
                     }
-                    .padding(5)
-                }
+                })
             }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    Text("News")
-                    .foregroundColor(.white) }
+                    Text("Apple News")
+                        .font(.title2)
+                        .foregroundColor(.white)
+                }
             }
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(trailing:
@@ -58,9 +71,6 @@ struct ContentView: View {
             
             
         }
-        
-        
-        
         .padding()
         .onAppear(){
             

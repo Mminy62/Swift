@@ -100,7 +100,6 @@ class WeatherAPI: ObservableObject{
 //        let lon = 126.8120882
         
         let urlString = "https://api.openweathermap.org/data/2.5/weather?lat=\(self.lat)&lon=\(self.lon)&appid=\(apiKey)"
-        print(urlString)
         
         
         guard let url = URL(string: urlString) else { return }
@@ -132,7 +131,6 @@ class WeatherAPI: ObservableObject{
             //            print(str)
             do {
                 let json = try JSONDecoder().decode(Weather.self, from: data)
-                print(json)
                 DispatchQueue.main.async {
                     let imgString = json.weather[0].icon
                     self.weatherImg = "https://openweathermap.org/img/wn/\(imgString)@2x.png"

@@ -81,6 +81,7 @@ class NewsAPI: ObservableObject{
                 let response = try JSONDecoder().decode(Results.self, from: data)
                 print(response.articles.count)
                 // 이미지로 인한 비동기처리 dispatchQueue
+                print(response.articles)
                 DispatchQueue.main.async {
                     self.posts = response.articles
                 }
