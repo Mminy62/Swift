@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="LiveSpeechDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MgH-2J-ttN">
+                                <rect key="frame" x="16" y="91" width="357" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Start"/>
+                                <connections>
+                                    <action selector="startTranscribing:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lg5-iO-WBX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fg6-9W-5UR">
+                                <rect key="frame" x="16" y="158" width="361" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Stop" titleAlignment="center"/>
+                                <connections>
+                                    <action selector="stopTranscribing:" destination="BYZ-38-t0r" eventType="touchUpInside" id="P17-xU-Jde"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="&quot;여기에 적힐거야&quot;" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7Rn-5f-7TN">
+                                <rect key="frame" x="20" y="225" width="353" height="185"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="7Rn-5f-7TN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="4wt-Lp-14y"/>
+                            <constraint firstItem="7Rn-5f-7TN" firstAttribute="top" secondItem="Fg6-9W-5UR" secondAttribute="bottom" constant="32" id="AsH-ct-xKW"/>
+                            <constraint firstItem="7Rn-5f-7TN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="DDk-QE-ewK"/>
+                            <constraint firstItem="Fg6-9W-5UR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FWh-D3-Apg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7Rn-5f-7TN" secondAttribute="trailing" constant="20" id="Hg8-5C-rEX"/>
+                            <constraint firstItem="MgH-2J-ttN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="32" id="MD7-Lu-Va6"/>
+                            <constraint firstItem="Fg6-9W-5UR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="MRd-vx-sbl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7Rn-5f-7TN" secondAttribute="trailing" constant="20" id="OfL-kE-Z93"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="7Rn-5f-7TN" secondAttribute="bottom" constant="408" id="WcZ-TI-K7n"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Fg6-9W-5UR" secondAttribute="trailing" constant="16" id="ajC-FL-IZj"/>
+                            <constraint firstItem="7Rn-5f-7TN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="eYj-VM-gE2"/>
+                            <constraint firstItem="Fg6-9W-5UR" firstAttribute="top" secondItem="MgH-2J-ttN" secondAttribute="bottom" constant="32" id="ibA-Xc-oj0"/>
+                            <constraint firstItem="7Rn-5f-7TN" firstAttribute="trailing" secondItem="MgH-2J-ttN" secondAttribute="trailing" id="l31-Mw-HX0"/>
+                            <constraint firstItem="MgH-2J-ttN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sgB-XP-osJ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="myTextView" destination="7Rn-5f-7TN" id="FPF-5c-5k2"/>
+                        <outlet property="stopButton" destination="Fg6-9W-5UR" id="1cH-lM-WpP"/>
+                        <outlet property="transcribeButton" destination="MgH-2J-ttN" id="xgC-Nm-eTs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139.69465648854961" y="4.9295774647887329"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
