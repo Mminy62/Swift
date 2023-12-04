@@ -11,10 +11,10 @@
 		52506CAA2B18570C00A8FBFF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52506CA92B18570C00A8FBFF /* ContentView.swift */; };
 		52506CAC2B18570D00A8FBFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52506CAB2B18570D00A8FBFF /* Assets.xcassets */; };
 		52506CAF2B18570D00A8FBFF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52506CAE2B18570D00A8FBFF /* Preview Assets.xcassets */; };
-		52506CB72B1858BD00A8FBFF /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52506CB62B1858BD00A8FBFF /* ApiKeys.plist */; };
 		52506CB92B1865F200A8FBFF /* NewsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52506CB82B1865F200A8FBFF /* NewsAPI.swift */; };
 		52506CD92B18847C00A8FBFF /* WeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52506CD82B18847C00A8FBFF /* WeatherAPI.swift */; };
 		52506CDB2B18B9EE00A8FBFF /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52506CDA2B18B9EE00A8FBFF /* LocationManager.swift */; };
+		52B86FAC2B1D61DA005673EC /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52B86FAB2B1D61DA005673EC /* ApiKeys.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,10 +24,10 @@
 		52506CAB2B18570D00A8FBFF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52506CAE2B18570D00A8FBFF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		52506CB52B18572400A8FBFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		52506CB62B1858BD00A8FBFF /* ApiKeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ApiKeys.plist; sourceTree = "<group>"; };
 		52506CB82B1865F200A8FBFF /* NewsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAPI.swift; sourceTree = "<group>"; };
 		52506CD82B18847C00A8FBFF /* WeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPI.swift; sourceTree = "<group>"; };
 		52506CDA2B18B9EE00A8FBFF /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		52B86FAB2B1D61DA005673EC /* ApiKeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ApiKeys.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,8 +64,8 @@
 				52506CA72B18570C00A8FBFF /* SwiftAPIDemoApp.swift */,
 				52506CA92B18570C00A8FBFF /* ContentView.swift */,
 				52506CB82B1865F200A8FBFF /* NewsAPI.swift */,
-				52506CB62B1858BD00A8FBFF /* ApiKeys.plist */,
 				52506CAB2B18570D00A8FBFF /* Assets.xcassets */,
+				52B86FAB2B1D61DA005673EC /* ApiKeys.plist */,
 				52506CAD2B18570D00A8FBFF /* Preview Content */,
 				52506CD82B18847C00A8FBFF /* WeatherAPI.swift */,
 				52506CDA2B18B9EE00A8FBFF /* LocationManager.swift */,
@@ -141,7 +141,7 @@
 			files = (
 				52506CAF2B18570D00A8FBFF /* Preview Assets.xcassets in Resources */,
 				52506CAC2B18570D00A8FBFF /* Assets.xcassets in Resources */,
-				52506CB72B1858BD00A8FBFF /* ApiKeys.plist in Resources */,
+				52B86FAC2B1D61DA005673EC /* ApiKeys.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
