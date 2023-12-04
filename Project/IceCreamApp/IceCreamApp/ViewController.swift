@@ -14,6 +14,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
     
     @IBOutlet var name: UITextField!
     @IBOutlet var flavor: UITextField!
+    @IBOutlet var calorie: UITextField!
+    @IBOutlet var allergy: UITextField!
     
     var imagePicker = UIImagePickerController()
     var arrData: [IceCream]?
@@ -56,7 +58,10 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
             contact.image = png
             contact.name = name.text
             contact.flavor = flavor.text
+            contact.calorie = calorie.text
+            contact.allergy = allergy.text
             
+
             
             do {
                 try manageObjectContext?.save()
@@ -93,6 +98,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
                     
                     name.text = match.value(forKey: "name") as? String
                     flavor.text = match.value(forKey: "flavor") as? String
+                    calorie.text = match.value(forKey: "calorie") as? String
+                    allergy.text = match.value(forKey: "allergy") as? String
                     
                     let image = match.value(forKey: "image") as! Data
                     imageView.image = UIImage(data: image)!

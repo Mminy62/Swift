@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		528011282B0F307000D871D3 /* IceCreamTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528011272B0F307000D871D3 /* IceCreamTableViewController.swift */; };
+		5280112A2B0F31CB00D871D3 /* IceCreamTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528011292B0F31CB00D871D3 /* IceCreamTableViewCell.swift */; };
+		5280112C2B0F396B00D871D3 /* IceCreamDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5280112B2B0F396B00D871D3 /* IceCreamDetailView.swift */; };
 		52DCE4812B0F10F800797795 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DCE4802B0F10F800797795 /* AppDelegate.swift */; };
 		52DCE4832B0F10F800797795 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DCE4822B0F10F800797795 /* SceneDelegate.swift */; };
 		52DCE4852B0F10F800797795 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DCE4842B0F10F800797795 /* ViewController.swift */; };
@@ -16,10 +19,12 @@
 		52DCE4902B0F10FA00797795 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52DCE48E2B0F10FA00797795 /* LaunchScreen.storyboard */; };
 		52DCE4992B0F160400797795 /* IceCream+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DCE4972B0F160400797795 /* IceCream+CoreDataClass.swift */; };
 		52DCE49A2B0F160400797795 /* IceCream+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DCE4982B0F160400797795 /* IceCream+CoreDataProperties.swift */; };
-		52DCE49C2B0F1CCF00797795 /* DetailView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52DCE49B2B0F1CCF00797795 /* DetailView.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		528011272B0F307000D871D3 /* IceCreamTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IceCreamTableViewController.swift; sourceTree = "<group>"; };
+		528011292B0F31CB00D871D3 /* IceCreamTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IceCreamTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		5280112B2B0F396B00D871D3 /* IceCreamDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IceCreamDetailView.swift; sourceTree = "<group>"; };
 		52DCE47D2B0F10F800797795 /* IceCreamApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IceCreamApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52DCE4802B0F10F800797795 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52DCE4822B0F10F800797795 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,7 +36,6 @@
 		52DCE4912B0F10FA00797795 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52DCE4972B0F160400797795 /* IceCream+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IceCream+CoreDataClass.swift"; sourceTree = "<group>"; };
 		52DCE4982B0F160400797795 /* IceCream+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IceCream+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		52DCE49B2B0F1CCF00797795 /* DetailView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailView.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,15 +70,17 @@
 		52DCE47F2B0F10F800797795 /* IceCreamApp */ = {
 			isa = PBXGroup;
 			children = (
+				528011292B0F31CB00D871D3 /* IceCreamTableViewCell.swift */,
+				528011272B0F307000D871D3 /* IceCreamTableViewController.swift */,
 				52DCE4802B0F10F800797795 /* AppDelegate.swift */,
 				52DCE4822B0F10F800797795 /* SceneDelegate.swift */,
 				52DCE4842B0F10F800797795 /* ViewController.swift */,
+				5280112B2B0F396B00D871D3 /* IceCreamDetailView.swift */,
 				52DCE4862B0F10F800797795 /* Main.storyboard */,
 				52DCE48C2B0F10FA00797795 /* Assets.xcassets */,
 				52DCE48E2B0F10FA00797795 /* LaunchScreen.storyboard */,
 				52DCE4912B0F10FA00797795 /* Info.plist */,
 				52DCE4892B0F10F800797795 /* IceCreamApp.xcdatamodeld */,
-				52DCE49B2B0F1CCF00797795 /* DetailView.storyboard */,
 			);
 			path = IceCreamApp;
 			sourceTree = "<group>";
@@ -137,7 +143,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52DCE49C2B0F1CCF00797795 /* DetailView.storyboard in Resources */,
 				52DCE4902B0F10FA00797795 /* LaunchScreen.storyboard in Resources */,
 				52DCE48D2B0F10FA00797795 /* Assets.xcassets in Resources */,
 				52DCE4882B0F10F800797795 /* Main.storyboard in Resources */,
@@ -152,6 +157,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				52DCE49A2B0F160400797795 /* IceCream+CoreDataProperties.swift in Sources */,
+				5280112C2B0F396B00D871D3 /* IceCreamDetailView.swift in Sources */,
+				528011282B0F307000D871D3 /* IceCreamTableViewController.swift in Sources */,
+				5280112A2B0F31CB00D871D3 /* IceCreamTableViewCell.swift in Sources */,
 				52DCE4852B0F10F800797795 /* ViewController.swift in Sources */,
 				52DCE4812B0F10F800797795 /* AppDelegate.swift in Sources */,
 				52DCE48B2B0F10F800797795 /* IceCreamApp.xcdatamodeld in Sources */,
@@ -316,6 +324,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -344,6 +353,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -16,9 +16,11 @@ extension IceCream {
         return NSFetchRequest<IceCream>(entityName: "IceCream")
     }
 
+    @NSManaged public var flavor: String?
     @NSManaged public var image: Data?
     @NSManaged public var name: String?
-    @NSManaged public var flavor: String?
+    @NSManaged public var calorie: String?
+    @NSManaged public var allergy: String?
 
 }
 
