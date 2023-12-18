@@ -21,12 +21,13 @@ class ViewController: UIViewController, UISheetPresentationControllerDelegate {
 //    let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: 37.48468629, lng: 127.08408987))
     let cameraUpdate = NMFCameraUpdate()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 //        let mapView = NMFMapView(frame: view.frame)
-        naverMapView.mapView.addCameraDelegate(delegate: self)
-        print(naverMapView.center)
         
+        print(naverMapView.mapView.latitude, naverMapView.mapView.longitude)
+        naverMapView.mapView.addCameraDelegate(delegate: self)
        
         getParkings(district: "강남구") { parkings in
             if let parkings = parkings {
@@ -45,6 +46,7 @@ class ViewController: UIViewController, UISheetPresentationControllerDelegate {
             }
         }
         
+      
         naverMapView.mapView.moveCamera(cameraUpdate)
         view.addSubview(naverMapView)
     }
@@ -105,10 +107,15 @@ extension ViewController: NMFMapViewTouchDelegate, NMFMapViewCameraDelegate {
            // mapView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 200, right: 0)
            self.lat = mapView.cameraPosition.target.lat
            self.long = mapView.cameraPosition.target.lng
-           print("lng:\(long), lat:\(lat)")
+//           print("lng:\(long), lat:\(lat)")
+           var cameraPosition = mapView.cameraPosition
            debugPrint(mapView.cameraPosition)
-       
+           let projection = mapView.projection
+//           print(mapView.cameraPosition[0])
+//           let coord = projection.latlng(from: CGPoint(mapView.cameraPosition))
+           let point = projection.point(from: NMGLatLng(lat: cameraPosition.target.lat, lng: cameraPosition.target.lng))
            
+
        default:
            return
        }
