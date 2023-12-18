@@ -104,7 +104,18 @@ class ViewController: UIViewController {
     }
     
     @IBAction func deleteContact(_ sender: Any) {
-        
+        if resultName.text?.isEmpty != nil{
+            let deleteContact = Contact(name: name.text, address: address.text, phone: phone.text)
+            let (success, message) = Contact.save(contact: deleteContact, databasePath: databasePath)
+
+            status.text = message
+
+            if success {
+                name.text = ""
+                address.text = ""
+                phone.text = ""
+            }
+        }
         
     }
     
@@ -169,5 +180,51 @@ struct Contact{
         
         return items
     }
+    
+    
+    static func delete(contact: Contact, databasePath: String) -> (success: Bool, message: String) {
+        // select name, address, phone으로 id값 찾아주기
+        let contactDB = FMDatabase(path: databasePath)
+    
+        if contactDB.open(){
+            let selectSQL = "select id from contacts where (name, address, phone) = ('\(contact.name ?? "")', '\(contact.address ?? "")','\(contact.phone ?? "")')"
+            
+            do {
+                let results: FMResultSet? = try contactDB.executeUpdate(selectSQL, values: nil)
+                while results?.next() == true {
+                    let id = results?.int(forColumn: "id") ?? 0
+                    
+                    items.append(Contact(id: id, name: resultName.text, address: resultAddress.text, phone: resultPhone.text))
+                }
+                
+            } catch {
+                return (false, "contact 선택 실패!")
+            }
+            
+            
+        }
+        
+        
+        
+        let contactDB = FMDatabase(path: databasePath)
+        
+        if contactDB.open() {
+            let sql = "delete from contacts where (name, address, phone) = ('\(contact.name ?? "")', '\(contact.address ?? "")','\(contact.phone ?? "")')"
+            
+            do {
+                try contactDB.executeUpdate(sql, values: nil)
+            } catch {
+                return (false, "contact 삭제 실패!!")
+            }
+            
+            contactDB.close()
+        } else {
+            print("Error: \(contactDB.lastErrorMessage())")
+            return (false, "DB 열기 오류발생")
+        }
+        
+        return (true, "Contact Added")
+    }
+    
 }
 
