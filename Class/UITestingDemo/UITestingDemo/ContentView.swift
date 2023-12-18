@@ -10,19 +10,27 @@ import SwiftUI
 struct ContentView: View {
     
     @State private var showLogin = false
+    @EnvironmentObject private var user: User
     
     var body: some View {
         VStack {
-            Text("Welcome!")
+            Text(!user.isLoggedin ? "Welcome!" : "Welcome \(user.username)!")
                 .font(.title)
+            
+            Spacer().frame(height: 20)
             
             Button {
                 showLogin = true
             } label: {
                 Text("Login!")
             }
+            // 식별자 추가
+            .accessibilityIdentifier("loginButton")
         }
         .padding()
+        .sheet(isPresented: $showLogin) {// sheet는 vstack에 넣고 사용
+            LoginView()
+        }
     }
 }
 

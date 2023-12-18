@@ -15,14 +15,14 @@ final class UITestingDemoUITests: XCTestCase {
         app.launch()
         continueAfterFailure = false
     }
-
+    
     override func tearDownWithError() throws {
         // 이전 메서드에서 생성된 리소스, 인스턴스를 해제하는 코드 부분
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
     
     
-
+    
     func testWelcomeText() throws {
         // test code 작성
         // UI tests must launch the application that they test.
@@ -39,13 +39,104 @@ final class UITestingDemoUITests: XCTestCase {
     
     func testLoginButton() throws {
         
-//        let login = app.buttons["Login"]
+        //        let login = app.buttons["Login"]
         let login = app.buttons.element
         
         XCTAssert(login.exists)
         XCTAssertEqual(login.label, "Login!")
     }
+    
+    
+    func testLoginFormAppearance() throws {
+        // 로그인 버튼에 대한 탭 동작 트리거
+        app.buttons["loginButton"].tap()
+        // app 속성을 통해 네비게이션바 타이틀 "Login" 제목을 가져옴
+        let loginNavBarTitle = app.staticTexts["Login"]
+        // 0.5초 동안 나타나기를 기다림
+        XCTAssert(loginNavBarTitle.waitForExistence(timeout: 0.5)) // 바로 확인하면 모달창이 뜰때 전에 확인할까봐
+    }
+    
+    // 로그인 폼의 모든 요소 출력에 대한 테스트
+    func testLoginForm() throws {
+        app.buttons["loginButton"].tap()
+        
+        let navBar = app.navigationBars.element
+        XCTAssert(navBar.exists)
+        
+        let username = app.textFields["Username"]
+        XCTAssert(username.exists)
+        
+        let password = app.secureTextFields["Password"]
+        XCTAssert(password.exists)
+        
+        let login = app.buttons["loginNow"]
+        XCTAssert(login.exists)
+        
+        let dismiss = app.buttons["Dismiss"]
+        XCTAssert(dismiss.exists)
+    }
+    
+    // 닫기 버튼 테스트
+    // 특정 시간이 경과한 후에는 닫기(해제) 버튼이 더 이상 존재하지 않음을 확인
+    func testLoginDismiss() throws {
+        app.buttons["loginButton"].tap()
+        
+        let dismiss = app.buttons["Dismiss"]
+        dismiss.tap()
+        
+        XCTAssertFalse(dismiss.waitForExistence(timeout: 0.5))
+    }
+    
+    
+    // 사용자 이름 테스트
+    // 프로그래밍 방식으로 텍스트 필드에 텍스트를 입력
+    func testUsername() throws {
+        app.buttons["loginButton"].tap()
+        
+        let username = app.textFields["Username"]
+        username.tap()
+        username.typeText("test")
+        
+        XCTAssertNotEqual(username.value as! String, "")
+    }
+    
+    // 비밀번호 입력 테스트
+    // 텍스트 입력을 제공하는 다른 방법 - 키보드 탭 동작을 시뮬레이션
+    func testPassword() throws {
+        app.buttons["loginButton"].tap()
+        
+        app.secureTextFields.element.tap()
+        app.keys["p"].tap()
+        app.keys["a"].tap()
+        app.keys["s"].tap()
+        app.keys["s"].tap()
+        app.keyboards.buttons["Return"].tap()
+        
+        XCTAssertNotEqual(app.secureTextFields.element.value as! String, "")
+    }
+    
+    // 로그인 프로세스를 테스트
+    func testLogin() throws {
+        app.buttons["loginButton"].tap()
 
+        let username = app.textFields["Username"]
+        username.tap()
+        username.typeText("test")
+
+        let password = app.secureTextFields["Password"]
+        password.tap()
+        password.typeText("pass")
+        app.keyboards.buttons["Return"].tap()
+
+        let login = app.buttons["loginNow"]
+        login.tap()
+
+        XCTAssertFalse(login.waitForExistence(timeout: 0.5))
+    }
+    
+    
+
+    
     func testLaunchPerformance() throws {
         // 성능 테스트 하는 곳
         if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
