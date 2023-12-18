@@ -19,17 +19,21 @@ final class UITestingDemoUITests: XCTestCase {
     }
 
     override func tearDownWithError() throws {
-        // 정리하는 코드
+        // 이전 메서드에서 생성된 리소스, 인스턴스를 해제하는 코드 부분
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
+    func testWelcome() throws {
         // test code 작성
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
         app.launch()
-
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
+        // text안에 쓴 label이 id처럼 쓰일 수 있음
+        let welcome = app.staticTexts["Welcome!"] // welcome 텍스트 부분 가지고 오는 것
+        
+        XCTAssert(welcome.exists) // welcome element가 실제로 나타나고 있는지 true/false로 나타냄
+        
     }
 
     func testLaunchPerformance() throws {
