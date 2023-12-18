@@ -38,12 +38,10 @@ final class UITestingDemoUITests: XCTestCase {
     }
     
     func testLoginButton() throws {
-        
-        //        let login = app.buttons["Login"]
-        let login = app.buttons.element
+        let login = app.buttons["Login"]
         
         XCTAssert(login.exists)
-        XCTAssertEqual(login.label, "Login!")
+        XCTAssertEqual(login.label, "Login")
     }
     
     
@@ -115,27 +113,81 @@ final class UITestingDemoUITests: XCTestCase {
         XCTAssertNotEqual(app.secureTextFields.element.value as! String, "")
     }
     
+    // 로그인 실패 테스트
+    func testFailedLoginAlert() throws {
+        app.buttons["loginButton"].tap()
+        app.buttons["loginNow"].tap()
+        
+        app.alerts.element.buttons["OK"].tap()
+        XCTAssertFalse(app.alerts.element.waitForExistence(timeout: 0.5))
+    }
+    
     // 로그인 프로세스를 테스트
     func testLogin() throws {
         app.buttons["loginButton"].tap()
-
+        
         let username = app.textFields["Username"]
         username.tap()
         username.typeText("test")
-
+        
         let password = app.secureTextFields["Password"]
         password.tap()
         password.typeText("pass")
         app.keyboards.buttons["Return"].tap()
-
+        
         let login = app.buttons["loginNow"]
         login.tap()
-
+        
         XCTAssertFalse(login.waitForExistence(timeout: 0.5))
     }
     
+    func login() throws {
+        app.buttons["loginButton"].tap()
+        
+        let username = app.textFields["Username"]
+        username.tap()
+        username.typeText("test")
+        
+        let password = app.secureTextFields["Password"]
+        password.tap()
+        password.typeText("pass")
+        app.keyboards.buttons["Return"].tap()
+        
+        app.buttons["loginNow"].tap()
+    }
     
-
+    
+    // 환영 메세지 및 로그인 버튼 라벨 테스트
+    // "Welcome test!" 표시되면 테스트가 성공
+    func testWelcomeAfterLogin() throws {
+        XCTAssert(app.staticTexts["Welcome!"].exists)
+        try login()
+        XCTAssert(app.staticTexts["Welcome test!"].exists)
+        XCTAssertFalse(app.staticTexts["Welcome!"].exists)
+    }
+    
+    // 로그인 버튼의 라벨을 확인하기 위한 테스트
+    func testLoginLogouLabel() throws {
+        XCTAssertEqual(app.buttons["loginButton"].label, "Login")
+        try login()
+        XCTAssertEqual(app.buttons["loginButton"].label, "Logout")
+    }
+    
+    // 로그아웃 테스트
+    // 로그아웃 후 ContentView(첫 화면)의 사용자 인터페이스가 제대로 업데이트 되는지 확인
+    func testLogout() throws {
+        try login()
+        
+        XCTAssert(app.staticTexts["Welcome test!"].exists)
+        XCTAssertEqual(app.buttons["loginButton"].label, "Logout")
+        
+        app.buttons["loginButton"].tap()
+        
+        XCTAssert(app.staticTexts["Welcome!"].exists)
+        XCTAssertEqual(app.buttons["loginButton"].label, "Login")
+    }
+    
+    
     
     func testLaunchPerformance() throws {
         // 성능 테스트 하는 곳

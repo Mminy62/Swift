@@ -20,9 +20,14 @@ struct ContentView: View {
             Spacer().frame(height: 20)
             
             Button {
-                showLogin = true
+                if !user.isLoggedin {
+                    showLogin = true
+                } else {
+                    user.logout()
+                }
+                
             } label: {
-                Text("Login!")
+                Text(!user.isLoggedin ? "Login" : "Logout")
             }
             // 식별자 추가
             .accessibilityIdentifier("loginButton")

@@ -10,6 +10,8 @@ import SwiftUI
 struct LoginView: View {
     // User 인스턴스에 액세스할 수 있도록 EnvironmentObject 속성 선언
     @EnvironmentObject private var user: User
+    @State private var showAlert = false
+    
     //
     //presentationMode: 화면에 닫고 열고 하는 모드
     // 13, 14버전 호환이 되고, 그 이상은 dismiss로도 된다
@@ -28,6 +30,8 @@ struct LoginView: View {
                     if user.login() {
                         // login 시트 닫기
                         presentationMode.wrappedValue.dismiss()
+                    } else {
+                        showAlert = true
                     }
                 } label: {
                     Text("Login")
@@ -44,8 +48,17 @@ struct LoginView: View {
                 Image(systemName: "xmark.circle")
                     .accessibilityLabel("Dismiss")
             })
+            .alert(isPresented: $showAlert) {
+                Alert(title: Text("Login Failed"),
+                      message: Text("사용자이름, 패스워드가 일치하지 않습니다."),
+                      dismissButton: Alert.Button.default(Text("OK"), action: {
+                    showAlert = false
+                }) )
+            }
             
         }
+        
+        
     }
 }
 

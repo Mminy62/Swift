@@ -22,4 +22,9 @@ class User: ObservableObject {
         
         return true
     }
+    
+    func logout() {
+        isLoggedin = false
+        username = ""
+    }
 }
