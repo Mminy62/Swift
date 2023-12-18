@@ -14,6 +14,7 @@
 		52B93C6A2B2FCDEB005E9ACE /* UITestingDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B93C692B2FCDEB005E9ACE /* UITestingDemoTests.swift */; };
 		52B93C742B2FCDEB005E9ACE /* UITestingDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B93C732B2FCDEB005E9ACE /* UITestingDemoUITests.swift */; };
 		52B93C762B2FCDEB005E9ACE /* UITestingDemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B93C752B2FCDEB005E9ACE /* UITestingDemoUITestsLaunchTests.swift */; };
+		52B93C832B2FE257005E9ACE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B93C822B2FE257005E9ACE /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		52B93C6F2B2FCDEB005E9ACE /* UITestingDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UITestingDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		52B93C732B2FCDEB005E9ACE /* UITestingDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestingDemoUITests.swift; sourceTree = "<group>"; };
 		52B93C752B2FCDEB005E9ACE /* UITestingDemoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestingDemoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		52B93C822B2FE257005E9ACE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			children = (
 				52B93C582B2FCDEA005E9ACE /* UITestingDemoApp.swift */,
 				52B93C5A2B2FCDEA005E9ACE /* ContentView.swift */,
+				52B93C822B2FE257005E9ACE /* User.swift */,
 				52B93C5C2B2FCDEB005E9ACE /* Assets.xcassets */,
 				52B93C5E2B2FCDEB005E9ACE /* Preview Content */,
 			);
@@ -259,6 +262,7 @@
 			files = (
 				52B93C5B2B2FCDEA005E9ACE /* ContentView.swift in Sources */,
 				52B93C592B2FCDEA005E9ACE /* UITestingDemoApp.swift in Sources */,
+				52B93C832B2FE257005E9ACE /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
