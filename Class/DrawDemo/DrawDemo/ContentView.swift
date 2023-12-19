@@ -8,14 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    let badge = Badge()
+    
     var body: some View {
         VStack {
-//            Circle()
-//                .fill(.blue)
-//                .frame(width: 200, height: 200)
-//            
-//            Capsule()
-//                .stroke(lineWidth: 1.0)
+            badge
             PathView()
             MyShape()
 
