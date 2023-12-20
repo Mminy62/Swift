@@ -14,6 +14,10 @@
 		52C084692B326BBC00D1AF38 /* AniNavigationMenuViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C084682B326BBC00D1AF38 /* AniNavigationMenuViewTests.swift */; };
 		52C084732B326BBC00D1AF38 /* AniNavigationMenuViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C084722B326BBC00D1AF38 /* AniNavigationMenuViewUITests.swift */; };
 		52C084752B326BBC00D1AF38 /* AniNavigationMenuViewUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C084742B326BBC00D1AF38 /* AniNavigationMenuViewUITestsLaunchTests.swift */; };
+		52C084822B3277C400D1AF38 /* AniGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C084812B3277C400D1AF38 /* AniGradientView.swift */; };
+		52C084842B327A1300D1AF38 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C084832B327A1300D1AF38 /* GradientView.swift */; };
+		52C084862B32B22500D1AF38 /* Phaseanimatorview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C084852B32B22500D1AF38 /* Phaseanimatorview.swift */; };
+		52C084882B32B26B00D1AF38 /* KeyframeAnimatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C084872B32B26B00D1AF38 /* KeyframeAnimatorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +48,10 @@
 		52C0846E2B326BBC00D1AF38 /* AniNavigationMenuViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AniNavigationMenuViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		52C084722B326BBC00D1AF38 /* AniNavigationMenuViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AniNavigationMenuViewUITests.swift; sourceTree = "<group>"; };
 		52C084742B326BBC00D1AF38 /* AniNavigationMenuViewUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AniNavigationMenuViewUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		52C084812B3277C400D1AF38 /* AniGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AniGradientView.swift; sourceTree = "<group>"; };
+		52C084832B327A1300D1AF38 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		52C084852B32B22500D1AF38 /* Phaseanimatorview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Phaseanimatorview.swift; sourceTree = "<group>"; };
+		52C084872B32B26B00D1AF38 /* KeyframeAnimatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyframeAnimatorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,8 +104,12 @@
 			children = (
 				52C084572B326BBB00D1AF38 /* AniNavigationMenuViewApp.swift */,
 				52C084592B326BBB00D1AF38 /* ContentView.swift */,
+				52C084812B3277C400D1AF38 /* AniGradientView.swift */,
+				52C084852B32B22500D1AF38 /* Phaseanimatorview.swift */,
+				52C084872B32B26B00D1AF38 /* KeyframeAnimatorView.swift */,
 				52C0845B2B326BBC00D1AF38 /* Assets.xcassets */,
 				52C0845D2B326BBC00D1AF38 /* Preview Content */,
+				52C084832B327A1300D1AF38 /* GradientView.swift */,
 			);
 			path = AniNavigationMenuView;
 			sourceTree = "<group>";
@@ -258,6 +270,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				52C0845A2B326BBB00D1AF38 /* ContentView.swift in Sources */,
+				52C084882B32B26B00D1AF38 /* KeyframeAnimatorView.swift in Sources */,
+				52C084862B32B22500D1AF38 /* Phaseanimatorview.swift in Sources */,
+				52C084822B3277C400D1AF38 /* AniGradientView.swift in Sources */,
+				52C084842B327A1300D1AF38 /* GradientView.swift in Sources */,
 				52C084582B326BBB00D1AF38 /* AniNavigationMenuViewApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
