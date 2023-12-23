@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5287F3272B32E437000ECF31 /* ExPieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5287F3262B32E437000ECF31 /* ExPieChartView.swift */; };
+		5287F3292B32E466000ECF31 /* AnimatedSymbolEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5287F3282B32E466000ECF31 /* AnimatedSymbolEffectView.swift */; };
+		5287F32B2B32E497000ECF31 /* ExCurveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5287F32A2B32E497000ECF31 /* ExCurveView.swift */; };
 		52C084582B326BBB00D1AF38 /* AniNavigationMenuViewApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C084572B326BBB00D1AF38 /* AniNavigationMenuViewApp.swift */; };
 		52C0845A2B326BBB00D1AF38 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C084592B326BBB00D1AF38 /* ContentView.swift */; };
 		52C0845C2B326BBC00D1AF38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52C0845B2B326BBC00D1AF38 /* Assets.xcassets */; };
@@ -38,6 +41,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5287F3262B32E437000ECF31 /* ExPieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExPieChartView.swift; sourceTree = "<group>"; };
+		5287F3282B32E466000ECF31 /* AnimatedSymbolEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedSymbolEffectView.swift; sourceTree = "<group>"; };
+		5287F32A2B32E497000ECF31 /* ExCurveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExCurveView.swift; sourceTree = "<group>"; };
 		52C084542B326BBB00D1AF38 /* AniNavigationMenuView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AniNavigationMenuView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52C084572B326BBB00D1AF38 /* AniNavigationMenuViewApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AniNavigationMenuViewApp.swift; sourceTree = "<group>"; };
 		52C084592B326BBB00D1AF38 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -108,8 +114,11 @@
 				52C084852B32B22500D1AF38 /* Phaseanimatorview.swift */,
 				52C084872B32B26B00D1AF38 /* KeyframeAnimatorView.swift */,
 				52C0845B2B326BBC00D1AF38 /* Assets.xcassets */,
-				52C0845D2B326BBC00D1AF38 /* Preview Content */,
+				5287F3262B32E437000ECF31 /* ExPieChartView.swift */,
 				52C084832B327A1300D1AF38 /* GradientView.swift */,
+				52C0845D2B326BBC00D1AF38 /* Preview Content */,
+				5287F3282B32E466000ECF31 /* AnimatedSymbolEffectView.swift */,
+				5287F32A2B32E497000ECF31 /* ExCurveView.swift */,
 			);
 			path = AniNavigationMenuView;
 			sourceTree = "<group>";
@@ -271,7 +280,10 @@
 			files = (
 				52C0845A2B326BBB00D1AF38 /* ContentView.swift in Sources */,
 				52C084882B32B26B00D1AF38 /* KeyframeAnimatorView.swift in Sources */,
+				5287F32B2B32E497000ECF31 /* ExCurveView.swift in Sources */,
+				5287F3292B32E466000ECF31 /* AnimatedSymbolEffectView.swift in Sources */,
 				52C084862B32B22500D1AF38 /* Phaseanimatorview.swift in Sources */,
+				5287F3272B32E437000ECF31 /* ExPieChartView.swift in Sources */,
 				52C084822B3277C400D1AF38 /* AniGradientView.swift in Sources */,
 				52C084842B327A1300D1AF38 /* GradientView.swift in Sources */,
 				52C084582B326BBB00D1AF38 /* AniNavigationMenuViewApp.swift in Sources */,
