@@ -21,19 +21,32 @@ struct ContentView: View {
                 .textFieldStyle(RoundedBorderTextFieldStyle())
             Button {
                 productStore.addProduct(item:
-                    Product(
-                        id: UUID().uuidString,
-                        name: name,
-                        description: description,
-                        isOrder: isOrder
-                    )
+                                            Product(
+                                                id: UUID().uuidString,
+                                                name: name,
+                                                description: description,
+                                                isOrder: isOrder
+                                            )
                 )
             } label: {
                 Text("Add Product")
             }
             
+            Spacer()
+            List {
+                ForEach(productStore.products, id: \.self) { product in
+                    Text(product.name)
+                }
+            }
+            
         }
         .padding()
+        .onAppear {
+            self.productStore.listenToRTDatabase()
+        }
+        .onDisappear {
+            self.productStore.stopListening()
+        }
     }
 }
 
