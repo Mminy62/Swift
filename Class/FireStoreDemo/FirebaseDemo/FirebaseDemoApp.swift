@@ -27,7 +27,8 @@ struct FirebaseDemoApp: App {
 //            ContentView()
 //            FireStoreView()
 //            QueryView()
-            StorageView()
+//            StorageView()
+            AuthView()
         }
     }
 }

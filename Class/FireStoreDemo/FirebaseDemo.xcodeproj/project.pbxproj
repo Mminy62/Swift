@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5260EC3B2B4CDB0B0064612E /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5260EC3A2B4CDB0B0064612E /* AuthView.swift */; };
 		528D96722B4B964A000A9D07 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 528D96712B4B964A000A9D07 /* FirebaseAnalytics */; };
 		528D96742B4B964A000A9D07 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 528D96732B4B964A000A9D07 /* FirebaseAnalyticsOnDeviceConversion */; };
 		528D96762B4B964A000A9D07 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 528D96752B4B964A000A9D07 /* FirebaseAnalyticsSwift */; };
@@ -91,6 +92,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5260EC3A2B4CDB0B0064612E /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		528D96A72B4BAED7000A9D07 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		528D96A92B4BB4B2000A9D07 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		528D96AB2B4BB661000A9D07 /* QueryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryView.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 				528D96B12B4BCFFA000A9D07 /* StorageView.swift */,
 				528D96B32B4BD57E000A9D07 /* ImagePicker.swift */,
 				528D96AD2B4BBBF5000A9D07 /* string+extensions.swift */,
+				5260EC3A2B4CDB0B0064612E /* AuthView.swift */,
 				528D96A72B4BAED7000A9D07 /* GoogleService-Info.plist */,
 				DED7D4D32B46439800BE0EA1 /* Assets.xcassets */,
 				DED7D4D52B46439800BE0EA1 /* Preview Content */,
@@ -376,6 +379,7 @@
 			files = (
 				528D96AC2B4BB661000A9D07 /* QueryView.swift in Sources */,
 				DED7D53D2B47DD3F00BE0EA1 /* FireStoreView.swift in Sources */,
+				5260EC3B2B4CDB0B0064612E /* AuthView.swift in Sources */,
 				DED7D53B2B47D59100BE0EA1 /* Restaurant.swift in Sources */,
 				528D96B02B4BCBF8000A9D07 /* StorageManager.swift in Sources */,
 				528D96AA2B4BB4B2000A9D07 /* City.swift in Sources */,
