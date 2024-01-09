@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct StorageView: View {
+    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     
     @ObservedObject var storageManager = StorageManager.shared
     @State var image = UIImage()
@@ -54,6 +55,12 @@ struct StorageView: View {
                         Text(simage.fullPath)
                     }
                 }
+                .onDelete(perform: { indexSet in
+                    for index in indexSet {
+                        storageManager.deleteItem(fullPath: storageManager.images[index].fullPath)
+                    }
+                    self.mode.wrappedValue.dismiss()
+                })
             }
         }
     }
