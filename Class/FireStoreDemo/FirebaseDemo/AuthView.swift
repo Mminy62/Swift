@@ -9,55 +9,47 @@ import SwiftUI
 import FirebaseAuth
 
 struct AuthView: View {
+    @ObservedObject var authManager = AuthManager.shared
     
     @State var email = ""
     @State var password = ""
     
     var body: some View {
-        VStack {
-            TextField("Email", text: $email)
-            SecureField("Password", text: $password)
-            Button("Sign in") {
-                Auth.auth().signIn(withEmail: email, password: password) { result, error in
-                    guard error == nil else {
-                        print(error!)
-                        return
+        NavigationStack {
+            VStack {
+                if authManager.state == .signedOut {
+                    
+                    TextField("Email", text: $email)
+                    SecureField("Password", text: $password)
+                    Button("Sign in") {
+                        authManager.emailAuthSignIn(email: email, password: password)
                     }
-                    if let user = result?.user {
-                        print("Success, \(user.uid)")
+                    NavigationLink {
+                        AuthSignUpView()
+                    } label: {
+                        Text("가입")
                     }
                     
-                }
-            }
-            
-            Button("Sign out") {
-                try? Auth.auth().signOut()
-            }
-            Button("탈퇴") {
-                if let user = Auth.auth().currentUser {
-                    user.delete { error in
-                        if let error = error {
-                            print("Error deleting user", error)
-                        } else {
-                            print("탈퇴 완료", user)
+                } else {
+                    HStack {
+                        Button("Sign out") {
+                            authManager.signOut()
+                        }
+                        Button("탈퇴") {
+                            authManager.deleteUser()
                         }
                     }
+                    
+                    StorageView()
                 }
             }
-        }
-        .padding()
-        .onAppear {
-            if Auth.auth().currentUser != nil {
-                print("로그인 중...")
-            } else {
-                print("로그인 필요")
+            .padding()
+            .onAppear {
+                authManager.checkSignIn()
             }
-            
         }
-        
     }
 }
-
 #Preview {
     AuthView()
 }
