@@ -1,0 +1,6 @@
+framework module Pods_NaverMapDemo {
+  umbrella header "Pods-NaverMapDemo-umbrella.h"
+
+  export *
+  module * { export * }
+}
