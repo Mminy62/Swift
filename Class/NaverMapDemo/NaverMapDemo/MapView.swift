@@ -49,7 +49,6 @@ final class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, N
     
     let view = NMFNaverMapView(frame: .zero)
     
-    
     override init() {
         super.init()
         
@@ -75,6 +74,11 @@ final class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, N
     
     func mapView(_ mapView: NMFMapView, cameraIsChangingByReason reason: Int) {
         // 카메라의 위치가 변경되면 호출되는 함수
+        
+        let cameraPosition = mapView.cameraPosition
+        
+        // 현 위치에서 검색 버튼을 누르면, target.lat, target.lng 기준으로 넘겨주기
+        print("target:", cameraPosition.target.lat, cameraPosition.target.lng)
     }
     
     // 뷰 함수
@@ -116,6 +120,7 @@ final class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, N
             
             fetchUserLocation()
             
+            
         @unknown default:
             break
         }
@@ -140,9 +145,42 @@ final class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, N
             locationOverlay.anchor = CGPoint(x: 0.5, y: 1)
             
             view.mapView.moveCamera(cameraUpdate)
+            
+            // userlocation -> api data
+            fetchApiData()
         }
     }
     
+    func fetchApiData() {
+        // 현재 내 위치에서 안과 정보 받아오기
+        guard let url = URL(string: "https://map.naver.com/v5/api/search?caller=pcweb&query=%EC%95%88%EA%B3%BC&type=all&searchCoord=\(String(userLocation.1));\(String(userLocation.0))&page=1&displayCount=20&isPlaceRecommendationReplace=true&lang=ko") else { return }
+//        guard let url = URL(string: "https://map.naver.com/v5/api/search?caller=pcweb&query=%EC%95%88%EA%B3%BC&type=all&searchCoord=127.082911;37.628187&page=1&displayCount=20&isPlaceRecommendationReplace=true&lang=ko") else { return }
+        
+        print(url)
+        // Request
+        let request = URLRequest(url: url)
+        
+        let session = URLSession(configuration: .default)
+        // Task
+        session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+            guard error == nil else {
+                print("Error occur: error calling GET - \\(String(describing: error))")
+                return
+            }
+            guard let data = data, let response = response as? HTTPURLResponse, (200..<300) ~= response.statusCode else {
+                print("Error: HTTP request failed")
+                return
+            }
+            guard let output = try? JSONDecoder().decode(tempPlaces.self, from: data) else {
+                print("Error: JSON data parsing failed")
+                return
+            }
+            print("OUTPUT", output)
+            print("<list>", output.result.place.list)
+            print(output.result.place.list.count)
+           
+        }.resume()
+    }
     
 }
 

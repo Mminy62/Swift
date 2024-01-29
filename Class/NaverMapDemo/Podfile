@@ -1,4 +1,4 @@
-# Uncomment the next line to define a global platform for your project
+#Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
 
 target 'NaverMapDemo' do
@@ -7,4 +7,6 @@ target 'NaverMapDemo' do
 
   # Pods for NaverMapDemo
   pod 'NMapsMap'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Messaging'
 end
