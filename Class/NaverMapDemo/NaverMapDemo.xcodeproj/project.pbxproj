@@ -11,8 +11,18 @@
 		528525A72B55B8350017CD17 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528525A62B55B8350017CD17 /* ContentView.swift */; };
 		528525A92B55B8360017CD17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 528525A82B55B8360017CD17 /* Assets.xcassets */; };
 		528525AC2B55B8360017CD17 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 528525AB2B55B8360017CD17 /* Preview Assets.xcassets */; };
-		528525B42B55BB2C0017CD17 /* MapView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528525B32B55BB2C0017CD17 /* MapView2.swift */; };
+		528525B42B55BB2C0017CD17 /* tempView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528525B32B55BB2C0017CD17 /* tempView.swift */; };
+		52D375252B67249700EE200F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D375242B67249700EE200F /* LoginView.swift */; };
+		52D375272B67271C00EE200F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52D375262B67271C00EE200F /* GoogleService-Info.plist */; };
+		52D3752A2B672BCD00EE200F /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D375292B672BCD00EE200F /* LoginViewModel.swift */; };
+		52D3752C2B672C1400EE200F /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D3752B2B672C1400EE200F /* Color+Extension.swift */; };
+		52D3752E2B67676A00EE200F /* PhoneNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D3752D2B67676A00EE200F /* PhoneNumberView.swift */; };
+		52D375302B6767AB00EE200F /* CountryNumbers.json in Resources */ = {isa = PBXBuildFile; fileRef = 52D3752F2B6767AB00EE200F /* CountryNumbers.json */; };
+		52D375322B6767C400EE200F /* CPData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D375312B6767C400EE200F /* CPData.swift */; };
+		52D375392B678F0700EE200F /* OTPVerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D375382B678F0700EE200F /* OTPVerificationView.swift */; };
 		52EE56B72B5AED6500C6D423 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EE56B62B5AED6500C6D423 /* MapView.swift */; };
+		52EE56B92B5D7DB500C6D423 /* Places.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EE56B82B5D7DB500C6D423 /* Places.swift */; };
+		52EE56BB2B5D94D400C6D423 /* tempPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EE56BA2B5D94D400C6D423 /* tempPlace.swift */; };
 		E1758C01E084FE5C051689FF /* Pods_NaverMapDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CC0246D6067CDF9BEFE0C18 /* Pods_NaverMapDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -24,8 +34,19 @@
 		528525A82B55B8360017CD17 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		528525AB2B55B8360017CD17 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		528525B22B55B9BC0017CD17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		528525B32B55BB2C0017CD17 /* MapView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView2.swift; sourceTree = "<group>"; };
+		528525B32B55BB2C0017CD17 /* tempView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tempView.swift; sourceTree = "<group>"; };
+		52D375242B67249700EE200F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		52D375262B67271C00EE200F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		52D375282B672B8100EE200F /* NaverMapDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NaverMapDemo.entitlements; sourceTree = "<group>"; };
+		52D375292B672BCD00EE200F /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		52D3752B2B672C1400EE200F /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		52D3752D2B67676A00EE200F /* PhoneNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberView.swift; sourceTree = "<group>"; };
+		52D3752F2B6767AB00EE200F /* CountryNumbers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CountryNumbers.json; sourceTree = "<group>"; };
+		52D375312B6767C400EE200F /* CPData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPData.swift; sourceTree = "<group>"; };
+		52D375382B678F0700EE200F /* OTPVerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPVerificationView.swift; sourceTree = "<group>"; };
 		52EE56B62B5AED6500C6D423 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		52EE56B82B5D7DB500C6D423 /* Places.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Places.swift; sourceTree = "<group>"; };
+		52EE56BA2B5D94D400C6D423 /* tempPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tempPlace.swift; sourceTree = "<group>"; };
 		56558CF1F1C59EFB8F5E230B /* Pods-NaverMapDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NaverMapDemo.debug.xcconfig"; path = "Target Support Files/Pods-NaverMapDemo/Pods-NaverMapDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		9CC0246D6067CDF9BEFE0C18 /* Pods_NaverMapDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NaverMapDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -72,13 +93,24 @@
 		528525A32B55B8350017CD17 /* NaverMapDemo */ = {
 			isa = PBXGroup;
 			children = (
+				52D375282B672B8100EE200F /* NaverMapDemo.entitlements */,
+				52D375382B678F0700EE200F /* OTPVerificationView.swift */,
 				528525B22B55B9BC0017CD17 /* Info.plist */,
+				52D3752F2B6767AB00EE200F /* CountryNumbers.json */,
 				528525A42B55B8350017CD17 /* NaverMapDemoApp.swift */,
 				528525A62B55B8350017CD17 /* ContentView.swift */,
 				52EE56B62B5AED6500C6D423 /* MapView.swift */,
-				528525B32B55BB2C0017CD17 /* MapView2.swift */,
+				528525B32B55BB2C0017CD17 /* tempView.swift */,
+				52EE56B82B5D7DB500C6D423 /* Places.swift */,
 				528525A82B55B8360017CD17 /* Assets.xcassets */,
 				528525AA2B55B8360017CD17 /* Preview Content */,
+				52EE56BA2B5D94D400C6D423 /* tempPlace.swift */,
+				52D375242B67249700EE200F /* LoginView.swift */,
+				52D375262B67271C00EE200F /* GoogleService-Info.plist */,
+				52D375292B672BCD00EE200F /* LoginViewModel.swift */,
+				52D3752B2B672C1400EE200F /* Color+Extension.swift */,
+				52D3752D2B67676A00EE200F /* PhoneNumberView.swift */,
+				52D375312B6767C400EE200F /* CPData.swift */,
 			);
 			path = NaverMapDemo;
 			sourceTree = "<group>";
@@ -160,7 +192,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				528525AC2B55B8360017CD17 /* Preview Assets.xcassets in Resources */,
+				52D375272B67271C00EE200F /* GoogleService-Info.plist in Resources */,
 				528525A92B55B8360017CD17 /* Assets.xcassets in Resources */,
+				52D375302B6767AB00EE200F /* CountryNumbers.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,9 +247,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52EE56B92B5D7DB500C6D423 /* Places.swift in Sources */,
+				52D3752C2B672C1400EE200F /* Color+Extension.swift in Sources */,
+				52D375252B67249700EE200F /* LoginView.swift in Sources */,
 				528525A72B55B8350017CD17 /* ContentView.swift in Sources */,
 				52EE56B72B5AED6500C6D423 /* MapView.swift in Sources */,
-				528525B42B55BB2C0017CD17 /* MapView2.swift in Sources */,
+				52D375322B6767C400EE200F /* CPData.swift in Sources */,
+				52D375392B678F0700EE200F /* OTPVerificationView.swift in Sources */,
+				52D3752A2B672BCD00EE200F /* LoginViewModel.swift in Sources */,
+				52D3752E2B67676A00EE200F /* PhoneNumberView.swift in Sources */,
+				52EE56BB2B5D94D400C6D423 /* tempPlace.swift in Sources */,
+				528525B42B55BB2C0017CD17 /* tempView.swift in Sources */,
 				528525A52B55B8350017CD17 /* NaverMapDemoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -348,6 +390,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = NaverMapDemo/NaverMapDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NaverMapDemo/Preview Content\"";
@@ -383,6 +426,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = NaverMapDemo/NaverMapDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NaverMapDemo/Preview Content\"";
