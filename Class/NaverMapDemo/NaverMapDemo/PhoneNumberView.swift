@@ -68,6 +68,8 @@ struct PhoneNumberView: View {
                     .padding(.bottom, 15)
                     
                     Button {
+                        checkUsers()
+                        
                         sendVerificationCode()
                     } label: {
                         Text("Next")
@@ -79,6 +81,9 @@ struct PhoneNumberView: View {
                 .padding(.horizontal)
                 
                 Spacer()
+                    .navigationDestination(isPresented: $openOTPView){
+                        OTPVerificationView(verificationID: verificationID, mobileNumber: "\(countryCode)\(mobPhoneNumber)")
+                    }
                 
             }
             .onTapGesture {
@@ -151,6 +156,11 @@ struct PhoneNumberView: View {
             pureNumber.insert(patternCharacter, at: stringIndex)
         }
         stringvar = pureNumber
+    }
+    
+    // 로그인 했는지 안했는지 나누기
+    func checkUsers() {
+        
     }
     
     func sendVerificationCode() {
