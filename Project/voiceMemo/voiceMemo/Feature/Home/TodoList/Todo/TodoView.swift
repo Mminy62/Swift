@@ -100,6 +100,7 @@ private struct SelectTimeView: View {
             )
             .labelsHidden()
             .datePickerStyle(WheelDatePickerStyle())
+            .environment(\.locale, Locale.init(identifier: "ko"))
             .frame(maxWidth: .infinity, alignment: .center)
             
             Rectangle()

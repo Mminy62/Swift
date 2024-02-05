@@ -108,12 +108,11 @@ private struct TodoListContentView: View {
                 Text("할일 목록")
                     .font(.system(size: 16, weight: .bold))
                     .padding(.leading, 20)
+                
+                Spacer()
             }
-            
-            Spacer()
-            
             ScrollView(.vertical) {
-                VStack(spacing: 0){
+                VStack {
                     Rectangle()
                         .fill(Color.customGray0)
                         .frame(height: 1)
@@ -153,7 +152,9 @@ private struct TodoCellView: View {
                         action: { todoListViewModel.isSelectedBoxTapped(todo) },
                         label: { todo.selected ? Image("selectedBox") : Image("unSelectedBox")}
                     )
+                    .padding(.trailing, 10)
                 }
+                    
                 
                 VStack(alignment: .leading, spacing: 5) {
                     Text(todo.title)
@@ -182,7 +183,7 @@ private struct TodoCellView: View {
             }
         }
         .padding(.horizontal, 20)
-        .padding(.top, 10)
+        .padding(.vertical, 10)
         
         Rectangle()
             .fill(Color.customGray0)

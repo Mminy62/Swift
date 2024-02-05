@@ -54,8 +54,7 @@ extension TodoListViewModel {
                 isEditTodoMode = false
             } else { // todos 삭제할 때
                 // 알럿을 불러준다!
-                isDisplayRemoveTodoAlert = true
-                isEditTodoMode = false
+                setIsDisplayRemoveTodoAlert(true)
             }
         } else { // editmode가 아닐때 버튼을 눌렀으니, editmode로 전환
             isEditTodoMode = true
